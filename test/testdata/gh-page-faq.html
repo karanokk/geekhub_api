@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8">
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"NRJS-9bfa8b24a4b840c5197","applicationID":"393381986","transactionName":"dF4IQBcOW1tWSxgVWFBUFRsWCVhA","queueTime":0,"applicationTime":680,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"NRJS-9bfa8b24a4b840c5197",applicationID:"393381986"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,y=["click","keydown","mousedown","pointerdown","touchstart"];y.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?f(e,c,o):o()}function n(n,r,i,o){if(!p.aborted||o){e&&e(n,r,i);for(var a=t(i),c=v(n),f=c.length,u=0;u<f;u++)c[u].apply(a,r);var d=s[w[n]];return d&&d.push([b,n,r,a]),a}}function l(e,t){h[e]=v(e).concat(t)}function m(e,t){var n=h[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return h[e]||[]}function g(e){return d[e]=d[e]||i(n)}function y(e,t){u(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var h={},w={},b={on:l,addEventListener:l,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:y,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var c="nr@context",f=e("gos"),u=e(6),s={},d={},p=t.exports=i();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1184.min.js"},w=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:w,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0},{}],"wrap-function":[function(e,t,n){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(7),a="nr@original",c=Object.prototype.hasOwnProperty,f=!1;t.exports=function(e,t){function n(e,t,n,i){function nrWrapper(){var r,a,c,f;try{a=this,r=o(arguments),c="function"==typeof n?n(r,a):n||{}}catch(u){p([u,"",[r,a,i],c])}s(t+"start",[r,a,i],c);try{return f=e.apply(a,r)}catch(d){throw s(t+"err",[r,a,d],c),d}finally{s(t+"end",[r,a,f],c)}}return r(e)?e:(t||(t=""),nrWrapper[a]=e,d(e,nrWrapper),nrWrapper)}function u(e,t,i,o){i||(i="");var a,c,f,u="-"===i.charAt(0);for(f=0;f<t.length;f++)c=t[f],a=e[c],r(a)||(e[c]=n(a,u?c+i:i,o,c))}function s(n,r,i){if(!f||t){var o=f;f=!0;try{e.emit(n,r,i,t)}catch(a){p([a,n,r,i])}f=o}}function d(e,t){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(e);return n.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(r){p([r])}for(var i in e)c.call(e,i)&&(t[i]=e[i]);return t}function p(t){try{e.emit("internal-error",t)}catch(n){}}return e||(e=i),n.inPlace=u,n.flag=a,n}},{}]},{},["loader"]);</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>geekhub | 汇聚最好的渠道</title>
+  <meta name="description" content="">
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="nMv-YyOrR4KaWqQYnJPQ7fJigvWCz-bysWxtxbVFlX1iGR_rGomVe0XqUHWYtEBHuENKhD89bIwAF5Q-4zhOZQ" />
+  
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+  
+
+<script>
+    window.prefix_host = "https://www.geekhub.com";
+</script>
+
+
+  <link rel="stylesheet" media="all" href="/packs/css/application-29371e89.css" data-turbolinks-track="reload" />
+  <script src="/packs/js/application-06f1838317e78d111575.js" data-turbolinks-track="reload"></script>
+</head>
+
+<body class="theme-light boxster bg-tertiary-99">
+  <div id="site-alert-area" class="fixed top-0 right-0 mt-5 mr-5 max-w-xs w-full z-20"></div>
+
+  <div class="flex flex-col overflow-auto bg-primary-300 theme-bg">
+
+    <header class="flex-shrink shadow-xs border-b bg-tertiary-99 border-primary-200 fix-box-bg bg-opacity-50">
+  <div class="container flex flex-col sm:flex-row items-center justify-between px-3 sm:px-10 py-3 mx-auto">
+    <div class="w-full sm:w-auto flex items-center justify-between mb-3 sm:mb-0">
+      <a href="/" class="flex items-center text-primary-700" data-prefetch="false">
+        <span>
+
+<svg width="128" height="29" viewBox="0 0 403.301 96.4" xmlns="http://www.w3.org/2000/svg" class="fill-current hover:text-secondary-600">
+<path d="M 193.6 0 L 193.6 44 Q 195.8 41.6 198.15 39 Q 200.5 36.4 202.7 33.85 Q 204.9 31.3 206.85 29 Q 208.8 26.7 210.2 25 L 227.9 25 Q 222.6 31.1 217.55 36.65 A 269.235 269.235 0 0 1 210.867 43.724 A 319.474 319.474 0 0 1 206.5 48.1 Q 209.5 50.8 212.7 54.55 Q 215.9 58.3 218.9 62.3 A 115.027 115.027 0 0 1 224.086 69.8 A 105.504 105.504 0 0 1 224.4 70.3 A 123.866 123.866 0 0 1 226.568 73.896 Q 227.556 75.603 228.371 77.159 A 72.452 72.452 0 0 1 228.6 77.6 L 211.5 77.6 Q 209.9 75 207.85 71.85 Q 205.8 68.7 203.5 65.55 Q 201.2 62.4 198.65 59.5 Q 196.1 56.6 193.6 54.6 L 193.6 77.6 L 178.7 77.6 L 178.7 2.4 L 193.6 0 Z M 251.5 77.6 L 236.6 77.6 L 236.6 2.4 L 251.5 0 L 251.5 25.2 A 20.47 20.47 0 0 1 252.688 24.847 Q 253.267 24.693 253.932 24.543 A 46.182 46.182 0 0 1 255.35 24.25 Q 257.7 23.8 259.9 23.8 A 38.677 38.677 0 0 1 264.398 24.046 Q 267.894 24.456 270.55 25.55 A 18.173 18.173 0 0 1 274.586 27.819 A 15.232 15.232 0 0 1 277.35 30.5 A 18.476 18.476 0 0 1 280.419 36.232 A 22.251 22.251 0 0 1 280.95 38.1 A 37.63 37.63 0 0 1 281.799 43.366 A 49.214 49.214 0 0 1 282 47.9 L 282 77.6 L 267.1 77.6 L 267.1 49.7 Q 267.1 44.05 265.961 40.987 A 8.419 8.419 0 0 0 265.25 39.5 A 5.819 5.819 0 0 0 262.116 37.054 Q 261.063 36.682 259.748 36.56 A 14.587 14.587 0 0 0 258.4 36.5 A 20.279 20.279 0 0 0 255.883 36.651 A 17.122 17.122 0 0 0 254.65 36.85 Q 252.9 37.2 251.5 37.6 L 251.5 77.6 Z M 47.9 26.8 L 47.9 71 A 40.438 40.438 0 0 1 47.323 78.073 Q 45.956 85.755 41.35 90.15 A 20.031 20.031 0 0 1 34.251 94.422 Q 31.188 95.535 27.41 96.021 A 49.482 49.482 0 0 1 21.1 96.4 Q 16.3 96.4 11.5 95.55 Q 6.7 94.7 2.6 93.3 L 5.2 80.8 Q 8.7 82.2 12.55 83 Q 16.28 83.775 20.995 83.799 A 59.428 59.428 0 0 0 21.3 83.8 Q 27.7 83.8 30.35 81 A 9.566 9.566 0 0 0 32.887 75.553 A 13.115 13.115 0 0 0 33 73.8 L 33 71.9 Q 30.6 73 28.05 73.55 Q 25.5 74.1 22.5 74.1 Q 13.204 74.1 7.618 69.408 A 18.072 18.072 0 0 1 5.8 67.65 Q 0.669 61.943 0.077 52.205 A 42.989 42.989 0 0 1 0 49.6 A 32.419 32.419 0 0 1 0.57 43.407 A 26.586 26.586 0 0 1 1.8 39.05 Q 3.6 34.3 7.05 30.9 A 22.736 22.736 0 0 1 13.606 26.432 A 27.195 27.195 0 0 1 15.5 25.65 Q 20.5 23.8 26.8 23.8 A 63.18 63.18 0 0 1 31.995 24.02 A 69.008 69.008 0 0 1 32.35 24.05 Q 35.2 24.3 38 24.7 Q 40.8 25.1 43.35 25.65 A 71.015 71.015 0 0 1 45.692 26.195 Q 46.869 26.491 47.9 26.8 Z M 340.4 25 L 340.4 75.8 Q 336.6 76.9 330.6 77.85 Q 324.6 78.8 318 78.8 Q 311.3 78.8 306.85 77 Q 302.4 75.2 299.8 71.95 A 18.964 18.964 0 0 1 296.676 66.175 A 23.038 23.038 0 0 1 296.1 64.2 Q 295 59.7 295 54.3 L 295 25 L 309.9 25 L 309.9 52.5 Q 309.9 59.7 311.8 62.9 A 6.055 6.055 0 0 0 315.19 65.562 Q 316.767 66.1 318.9 66.1 A 38.33 38.33 0 0 0 320.978 66.041 A 45.949 45.949 0 0 0 322.3 65.95 Q 324.1 65.8 325.5 65.6 L 325.5 25 L 340.4 25 Z M 108.5 56.2 L 74.7 56.2 A 9.847 9.847 0 0 0 78.538 63.155 A 12.174 12.174 0 0 0 79 63.5 Q 82.186 65.763 87.198 66.129 A 27.5 27.5 0 0 0 89.2 66.2 Q 93.3 66.2 97.25 65.45 Q 101.2 64.7 103.7 63.6 L 105.7 75.7 Q 104.5 76.3 102.5 76.9 Q 100.5 77.5 98.05 77.95 A 66.242 66.242 0 0 1 94.851 78.454 A 79.564 79.564 0 0 1 92.8 78.7 Q 90 79 87.2 79 A 40.566 40.566 0 0 1 81.342 78.598 Q 77.803 78.081 74.85 76.9 A 26.194 26.194 0 0 1 69.514 74.047 A 21.967 21.967 0 0 1 66.15 71.15 Q 62.7 67.5 61.05 62.5 A 33.158 33.158 0 0 1 59.479 54.199 A 39.024 39.024 0 0 1 59.4 51.7 A 38.609 38.609 0 0 1 59.842 45.716 Q 60.375 42.321 61.55 39.45 A 29.015 29.015 0 0 1 64.306 34.231 A 23.628 23.628 0 0 1 67.2 30.7 Q 70.7 27.2 75.25 25.4 Q 79.8 23.6 84.6 23.6 Q 95.8 23.6 102.3 30.45 A 21.774 21.774 0 0 1 107.15 38.834 Q 108.8 43.898 108.8 50.6 Q 108.8 51.9 108.7 53.45 Q 108.614 54.782 108.528 55.856 A 105.95 105.95 0 0 1 108.5 56.2 Z M 166.9 56.2 L 133.1 56.2 A 9.847 9.847 0 0 0 136.938 63.155 A 12.174 12.174 0 0 0 137.4 63.5 Q 140.586 65.763 145.598 66.129 A 27.5 27.5 0 0 0 147.6 66.2 Q 151.7 66.2 155.65 65.45 Q 159.6 64.7 162.1 63.6 L 164.1 75.7 Q 162.9 76.3 160.9 76.9 Q 158.9 77.5 156.45 77.95 A 66.242 66.242 0 0 1 153.251 78.454 A 79.564 79.564 0 0 1 151.2 78.7 Q 148.4 79 145.6 79 A 40.566 40.566 0 0 1 139.742 78.598 Q 136.203 78.081 133.25 76.9 A 26.194 26.194 0 0 1 127.914 74.047 A 21.967 21.967 0 0 1 124.55 71.15 Q 121.1 67.5 119.45 62.5 A 33.158 33.158 0 0 1 117.879 54.199 A 39.024 39.024 0 0 1 117.8 51.7 A 38.609 38.609 0 0 1 118.242 45.716 Q 118.775 42.321 119.95 39.45 A 29.015 29.015 0 0 1 122.706 34.231 A 23.628 23.628 0 0 1 125.6 30.7 Q 129.1 27.2 133.65 25.4 Q 138.2 23.6 143 23.6 Q 154.2 23.6 160.7 30.45 A 21.774 21.774 0 0 1 165.55 38.834 Q 167.2 43.898 167.2 50.6 Q 167.2 51.9 167.1 53.45 Q 167.014 54.782 166.928 55.856 A 105.95 105.95 0 0 1 166.9 56.2 Z M 354.4 75.9 L 354.4 2.4 L 369.3 0 L 369.3 26.2 Q 371.8 25.1 374.5 24.5 A 25.308 25.308 0 0 1 378.402 23.959 A 30.182 30.182 0 0 1 380.3 23.9 A 27.339 27.339 0 0 1 385.498 24.372 A 21.003 21.003 0 0 1 390.2 25.85 Q 394.5 27.8 397.4 31.4 A 23.422 23.422 0 0 1 400.726 37.035 A 29.061 29.061 0 0 1 401.8 40.05 Q 403.3 45.1 403.3 51.3 Q 403.3 57.6 401.45 62.7 A 24.942 24.942 0 0 1 398.033 69.13 A 22.646 22.646 0 0 1 396.1 71.4 A 23.002 23.002 0 0 1 389.055 76.3 A 27.185 27.185 0 0 1 387.5 76.95 A 29.051 29.051 0 0 1 380.951 78.578 A 38.148 38.148 0 0 1 375.9 78.9 Q 373.2 78.9 370.25 78.65 Q 367.3 78.4 364.45 78 A 82.055 82.055 0 0 1 359.984 77.251 A 72.789 72.789 0 0 1 359 77.05 A 69.758 69.758 0 0 1 356.695 76.523 Q 355.617 76.257 354.669 75.979 A 40.652 40.652 0 0 1 354.4 75.9 Z M 369.3 38.6 L 369.3 65.7 Q 370.4 65.9 372.1 66.05 A 38.07 38.07 0 0 0 374.108 66.171 A 48.265 48.265 0 0 0 375.8 66.2 A 14.054 14.054 0 0 0 379.56 65.726 A 9.837 9.837 0 0 0 385 62 Q 387.777 58.238 388.067 52.309 A 28.901 28.901 0 0 0 388.1 50.9 A 28.825 28.825 0 0 0 387.68 45.734 Q 386.064 36.911 378.243 36.518 A 14.8 14.8 0 0 0 377.5 36.5 Q 375.2 36.5 372.95 37.1 A 17.749 17.749 0 0 0 371.382 37.592 Q 370.628 37.871 370.003 38.195 A 8.757 8.757 0 0 0 369.3 38.6 Z M 33 60.1 L 33 36.3 Q 31.9 36.1 30.4 35.95 A 27.985 27.985 0 0 0 28.992 35.847 Q 28.267 35.812 27.453 35.803 A 50.567 50.567 0 0 0 26.9 35.8 A 14.11 14.11 0 0 0 23.39 36.21 A 9.238 9.238 0 0 0 18.1 39.7 A 14.245 14.245 0 0 0 15.643 45.233 A 20.425 20.425 0 0 0 15.2 49.6 A 22.717 22.717 0 0 0 15.617 54.162 Q 17.056 61.15 23.466 61.986 A 14.185 14.185 0 0 0 25.3 62.1 A 15.601 15.601 0 0 0 28.321 61.816 A 13.594 13.594 0 0 0 29.6 61.5 A 20.313 20.313 0 0 0 31.235 60.937 Q 32.213 60.55 33 60.1 Z M 74.7 46 L 94.4 46 Q 94.3 44.1 93.75 42.3 Q 93.2 40.5 92.05 39.1 A 8.86 8.86 0 0 0 89.683 37.093 A 10.4 10.4 0 0 0 89.15 36.8 Q 87.598 36.002 85.376 35.911 A 14.215 14.215 0 0 0 84.8 35.9 Q 82.3 35.9 80.5 36.75 A 9.195 9.195 0 0 0 78.244 38.237 A 8.365 8.365 0 0 0 77.5 39 A 9.999 9.999 0 0 0 75.734 42.021 A 11.38 11.38 0 0 0 75.65 42.25 Q 75 44.1 74.7 46 Z M 133.1 46 L 152.8 46 Q 152.7 44.1 152.15 42.3 Q 151.6 40.5 150.45 39.1 A 8.86 8.86 0 0 0 148.083 37.093 A 10.4 10.4 0 0 0 147.55 36.8 Q 145.998 36.002 143.776 35.911 A 14.215 14.215 0 0 0 143.2 35.9 Q 140.7 35.9 138.9 36.75 A 9.195 9.195 0 0 0 136.644 38.237 A 8.365 8.365 0 0 0 135.9 39 A 9.999 9.999 0 0 0 134.134 42.021 A 11.38 11.38 0 0 0 134.05 42.25 Q 133.4 44.1 133.1 46 Z" vector-effect="non-scaling-stroke"/>
+</svg>
+
+        </span>
+        <span class="ml-1">
+          <div class="text-xs sub">v1.2</div>
+          <div class="font-mono text-base -mt-2">.com</div>
+        </span>
+      </a>
+      <form action="https://www.google.com/search" method="get" target="_blank" class="mt-2 sm:mt-0 sm:ml-3">
+        <input type="hidden" name="sitesearch" value="geekhub.com">
+        <input type="search" name="query" class="px-3 py-1.5 rounded w-32 md:px-3 md:w-48 bg-tertiary-101 focus:bg-primary-300 focus:outline-none" placeholder="Search" >
+      </form>
+    </div>
+
+
+    <div class="flex-1 flex items-center justify-end">
+
+      <div class="inline-flex items-center theme-switch-btns">
+    <a id="theme-light" class="theme-btn" data-index="0" href="javascript:void(0);" title="light">
+  <svg viewBox="0 0 512 512" class="svg fill-current">
+    <path opacity=".4" d="M320 32L304 0l-16 32-32 16 32 16 16 32 16-32 32-16zm138.7 149.3L432 128l-26.7 53.3L352 208l53.3 26.7L432 288l26.7-53.3L512 208z"/><path d="M332.2 426.4c8.1-1.6 13.9 8 8.6 14.5a191.18 191.18 0 0 1-149 71.1C85.8 512 0 426 0 320c0-120 108.7-210.6 227-188.8 8.2 1.6 10.1 12.6 2.8 16.7-47.066 26.719-76.133 76.679-76.1 130.8 0 94 85.4 165.4 178.5 147.7z"/>
+  </svg>
+</a>
+
+    <a id="theme-ocean" class="theme-btn" data-index="1" href="javascript:void(0);" title="ocean">
+  <svg viewBox="0 0 512 512" class="svg fill-current">
+    <path opacity=".4" d="M320 32L304 0l-16 32-32 16 32 16 16 32 16-32 32-16zm138.7 149.3L432 128l-26.7 53.3L352 208l53.3 26.7L432 288l26.7-53.3L512 208z"/><path d="M332.2 426.4c8.1-1.6 13.9 8 8.6 14.5a191.18 191.18 0 0 1-149 71.1C85.8 512 0 426 0 320c0-120 108.7-210.6 227-188.8 8.2 1.6 10.1 12.6 2.8 16.7-47.066 26.719-76.133 76.679-76.1 130.8 0 94 85.4 165.4 178.5 147.7z"/>
+  </svg>
+</a>
+
+    <a id="theme-dark" class="theme-btn" data-index="2" href="javascript:void(0);" title="dark">
+  <svg viewBox="0 0 448 512" class="svg fill-current">
+    <path opacity=".4" d="M323.56 51.2a597.37 597.37 0 0 0-56.22 60C240.08 73.62 206.28 35.53 168 0 69.74 91.17 0 210 0 281.6 0 408.85 100.29 512 224 512s224-103.15 224-230.4c0-53.27-52-163.14-124.44-230.4zm-1.12 366.87A165.81 165.81 0 0 1 226.86 448c-43.93 0-84.43-14.89-114.06-41.92a146.179 146.179 0 0 1-35.88-50.39C68.35 335.82 64 314 64 290.75c0-59.43 42.8-106.39 104.3-180.12 30 34.59 18.49 19.78 100.7 124.59l62-70.74c24.32 40.25 27.78 45.59 34.84 59.1a157.93 157.93 0 0 1 15 104.62c-7.49 36.85-28.24 68.8-58.4 89.87z"/><path d="M304.09 391.85A134.39 134.39 0 0 1 226.86 416C154.71 416 96 368.26 96 290.75c0-38.61 24.31-72.63 72.79-130.75 6.93 8 98.83 125.34 98.83 125.34l58.63-66.88c4.14 6.85 7.91 13.55 11.27 20 27.35 52.19 15.81 119-33.43 153.42z"/>
+  </svg>
+</a>
+
+    <a id="theme-purple" class="theme-btn" data-index="3" href="javascript:void(0);" title="purple">
+  <svg viewBox="0 0 576 512" class="svg fill-current">
+    <path opacity=".4" d="M100.7 192H0l218.7 255a3 3 0 0 0 5-3.3zm374.6 0l-123 251.7a3 3 0 0 0 5 3.2L576 192zm-327.1 0l137.1 318.2a3 3 0 0 0 5.5 0l137-318.2z"/><path d="M90.5 0L0 160h101.1L170.3 0zm395 0h-79.8l69.2 160H576zm-267 0l-69.2 160h277.4L357.5 0z"/>
+  </svg>
+</a>
+
+    <a id="theme-jade" class="theme-btn" data-index="4" href="javascript:void(0);" title="jade">
+  <svg viewBox="0 0 512 512" class="svg fill-current">
+    <path opacity=".4" d="M502.42 240.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.41-94.8c-4.256-8.56-14.646-12.05-23.206-7.794A17.31 17.31 0 0 0 240.51 9.6l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-8.56 4.256-12.05 14.646-7.794 23.206A17.31 17.31 0 0 0 9.6 271.5l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.41-33.5 47.3 94.7c4.256 8.56 14.646 12.05 23.206 7.794a17.31 17.31 0 0 0 7.794-7.794l47.31-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c8.615-4.17 12.22-14.533 8.05-23.149a17.33 17.33 0 0 0-7.85-7.951zm-155.9 106c-49.91 49.9-131.11 49.9-181 0-49.903-50.015-49.903-130.985 0-181 49.9-49.9 131.1-49.9 181 0 49.903 50.015 49.903 130.985 0 181z"/><path d="M352 256c0 53.02-42.98 96-96 96s-96-42.98-96-96 42.98-96 96-96c52.985.083 95.917 43.015 96 96z"/>
+  </svg>
+</a>
+
+</div>
+<a style="display: none;" id="default_light_theme" data-value="light"></a>
+<a style="display: none;" id="default_dark_theme" data-value="ocean"></a>
+
+<script type="text/javascript">
+(function() {
+  const total_btns = $(".theme-switch-btns .theme-btn").length;
+  let available_themes = [];
+  $(".theme-switch-btns .theme-btn").each(function() {
+    available_themes.push($(this).attr('id'))
+  })
+
+  function removeClass(el, regex) {
+    const newClassName = el[0].className.replace(regex, '')
+
+    el[0].className = newClassName
+  }
+
+  function switch_theme_to(to_theme) {
+    const body = $("body")
+    const to_btn = $(`.theme-switch-btns a#${to_theme}`)
+
+    localStorage.setItem('theme', to_theme)
+
+    $(".theme-switch-btns .theme-btn").click(function() {
+      let next_index = parseInt($(this).data('index')) + 1;
+      if (next_index >= total_btns) {
+        next_index = 0
+      }
+
+      const next_btn = $(`a.theme-btn[data-index=${next_index}]`)
+      const next_theme = next_btn.attr('id')
+
+      const current_theme = $(this).attr('id')
+
+      $(this).hide()
+      next_btn.show()
+
+      body.removeClass(current_theme)
+      body.addClass(next_theme)
+
+      localStorage.setItem('theme', next_theme)
+    })
+
+    removeClass(body, /^theme-/)
+    body.addClass(to_theme)
+
+    to_btn.show()
+  }
+
+  function is_dark_mode() {
+    if (window.matchMedia) {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return true
+      } else {
+        return false
+      }
+    }
+
+    return false
+  }
+
+  let default_theme = 'theme-' + $("#default_light_theme").data('value')
+  if (is_dark_mode()) {
+    default_theme = 'theme-' + $("#default_dark_theme").data('value')
+  }
+
+  let theme = localStorage.getItem('theme') || default_theme
+  if (available_themes.indexOf(theme) == -1) {
+    theme = $(".theme-switch-btns .theme-btn[data-index=0]").attr('id')
+  }
+
+  switch_theme_to(theme)
+})()
+</script>
+
+
+
+      <div class="flex items-center ml-5">
+          <a href="/activities" class="flex items-center mr-5 text-secondary-400 hover:text-secondary-500">
+              <span>
+                <svg viewBox="0 0 448 512" class="svg mr-1">
+                  <path opacity=".4" d="M448 384c-.1 16.4-13 32-32.1 32H32.08C13 416 .09 400.4 0 384a31.25 31.25 0 0 1 8.61-21.71c19.32-20.76 55.47-52 55.47-154.29 0-77.7 54.48-139.9 127.94-155.16V32c0-17.673 14.327-32 32-32 17.673 0 32 14.327 32 32v20.84C329.42 68.1 383.9 130.3 383.9 208c0 102.3 36.15 133.53 55.47 154.29A31.27 31.27 0 0 1 448 384z"/><path d="M160 448h128c0 35.346-28.654 64-64 64-35.346 0-64-28.654-64-64z"/>
+                </svg>
+              </span>
+            <span>0</span>
+          </a>
+
+          <a class="inline-flex items-center mr-5" href="/u/karanokk">karanokk</a>
+
+
+          <a class="sm:mr-2" rel="nofollow" data-method="delete" href="/users/sign_out">退出</a>
+
+
+      </div>
+    </div>
+
+  </div>
+  <div><hr class="border-color"></div>
+  <div class="container flex items-center justify-between px-3 sm:px-10 py-3 mx-auto">
+    <div class="flex items-center">
+      <a href="/" class="px-2 hidden sm:inline-block">
+        <svg viewBox="0 0 512 512" class="svg w-5 h-5 fill-current">
+          <path opacity=".4" d="M448 96h-64l-64-64v134.4c0 53.02 42.98 96 96 96s96-42.98 96-96V32zm-72 80c-8.837 0-16-7.163-16-16s7.163-16 16-16 16 7.163 16 16-7.163 16-16 16zm80 0c-8.837 0-16-7.163-16-16s7.163-16 16-16 16 7.163 16 16-7.163 16-16 16zm-165.41 16a204.07 204.07 0 0 0-34.59 2.89V272l-43.15-64.73a183.93 183.93 0 0 0-44.37 26.17L192 304l-60.94-30.47L128 272v-80c-.055-52.996-43.003-95.945-96-96-17.673 0-32 14.327-32 32 0 17.673 14.327 32 32 32 17.673 0 32 14.327 32 32v256-.001C64.033 483.33 92.666 511.966 128 512h176c8.837 0 16-7.163 16-16v-16c0-17.673-14.327-32-32-32h-32l128-96v144c0 8.837 7.163 16 16 16h32c8.837 0 16-7.163 16-16V289.86a126.78 126.78 0 0 1-32 4.54c-61.81 0-113.52-44.05-125.41-102.4z"/><path d="M376 144c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zm80 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM131.06 273.53L192 304l-23.52-70.56a192.06 192.06 0 0 0-37.42 40.09zM256 272v-77.11a198.62 198.62 0 0 0-43.15 12.38z"/>
+        </svg>
+      </a>
+      <type>
+        <ul class="inline-flex items-center flex-wrap overflow-x-hidden sm:space-x-2">
+            <li>
+              <a class="inline-flex items-center px-2 py-px" href="/auctions">拍卖</a>
+            </li>
+            <li>
+              <a class="inline-flex items-center px-2 py-px" href="/second_hands">闲置</a>
+            </li>
+            <li>
+              <a class="inline-flex items-center px-2 py-px" href="/molecules">分子</a>
+            </li>
+            <li>
+              <a class="inline-flex items-center px-2 py-px" href="/group_buys">拼车</a>
+            </li>
+            <li>
+              <a class="inline-flex items-center px-2 py-px" href="/works">产品</a>
+            </li>
+            <li>
+              <a class="inline-flex items-center px-2 py-px" href="/services">服务</a>
+            </li>
+              <li class="hidden md:block meta">
+                |
+              </li>
+            <li>
+              <a class="inline-flex items-center px-2 py-px" href="/gbit_store">福利社</a>
+            </li>
+        </ul>
+      </type>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center mr-1 mb-2 sm:mb-0">
+      <a data-turbolinks="false" class="flex items-center whitespace-no-wrap mr-0 sm:mr-5" rel="nofollow" data-method="patch" href="/switch_theme">
+        <span class="pr-1">
+          <svg viewBox="0 0 448 512" class="svg">
+            <path d="M16 132h416c8.83 0 16-7.17 16-16V76c0-8.84-7.17-16-16-16H16C7.163 60 0 67.16 0 76v40c0 8.83 7.16 16 16 16zm0 160h416c8.83 0 16-7.17 16-16v-40c0-8.84-7.17-16-16-16H16c-8.837 0-16 7.16-16 16v40c0 8.83 7.16 16 16 16zm0 160h416c8.83 0 16-7.17 16-16v-40c0-8.84-7.17-16-16-16H16c-8.837 0-16 7.16-16 16v40c0 8.83 7.16 16 16 16z"/>
+          </svg>
+        </span>
+        <span>摸鱼模式</span>
+</a>
+        <a class="inline-flex items-center whitespace-no-wrap btn btn-blue mt-1 sm:mt-0" href="/posts/new">
+        <span class="pr-1">
+          <svg viewBox="0 0 512 512" class="w-3 h-3 fill-current">
+            <path opacity=".4" d="M96 352H32l-16 64 80 80 64-16v-64H96zM498 74.26l-.11-.11L437.77 14c-18.768-18.707-49.132-18.707-67.9 0l-46.1 46.1c-4.694 4.678-4.708 12.276-.03 16.97l.03.03 111 111c4.678 4.694 12.276 4.708 16.97.03l.03-.03 46.1-46.1c18.725-18.677 18.783-48.991.13-67.74z"/><path d="M.37 483.85c-2.3 13.053 6.417 25.5 19.47 27.8 2.756.48 5.574.48 8.33 0l67.32-16.16-79-79zM412.3 210.78l-111-111c-4.73-4.7-12.37-4.7-17.1 0L32 352h64v64h64v64l252.27-252.25c4.694-4.678 4.708-12.276.03-16.97z"/>
+          </svg>
+        </span>
+          <span>发布主题</span>
+</a>    </div>
+  </div>
+
+  <div class="hidden w-192 box box-big p-0 border border-color animated-modal" id="goshops">
+    <div class="p-3 border-b border-primary-300">
+      <div class="inline-flex items-center">
+          <span class="mr-2">
+            <svg viewBox="0 0 512 512" class="svg svg-sm">
+              <path opacity=".4" d="M224 496c0 8.837 7.163 16 16 16h32a15.88 15.88 0 0 0 5.71-1.07l.52-.19.1-.05a16.08 16.08 0 0 0 5-3.38A15.91 15.91 0 0 0 288 496V384h-64zM272 0h-32c-8.837 0-16 7.163-16 16v16h64V16c0-8.837-7.163-16-16-16zm-48 224h64v-32h-64z"/><path d="M456 224H70.63A32 32 0 0 0 48 233.37L4.69 276.69c-6.25 6.248-6.25 16.378-.003 22.627l.003.003L48 342.63A32 32 0 0 0 70.63 352H456c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zm51.31-139.31L464 41.37A32 32 0 0 0 441.37 32H56c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h385.37a32 32 0 0 0 22.63-9.37l43.31-43.31c6.25-6.248 6.25-16.378.003-22.627l-.003-.003z"/>
+            </svg>
+          </span>
+        <h4>直达</h4>
+      </div>
+    </div>
+    <div class="p-3">
+          <div class="flex items-center my-5">
+    <div class="w-1/6 text-right text-orange-600 mr-5">Digital</div>
+    <div class="flex-1">
+      <div class="flex items-center my-2">
+        <span class="mr-5">
+          <svg viewBox="0 0 448 512" class="svg">
+            <path opacity=".4" d="M.06 160v-.13l96 .06v-32C96.12 57.35 153.57 0 224.15 0c70.58 0 128 57.49 127.92 128.07V160h-64v-32.002c.021-35.346-28.615-64.017-63.962-64.038-35.346-.021-64.017 28.615-64.038 63.962v32h64z"/><path d="M.06 159.87l-.16 272v.002c-.026 44.183 35.77 80.022 79.952 80.048l288 .16c44.183 0 80-35.817 80-80l.16-272zM128 247.94c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24zm192 .12c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24z"/>
+          </svg>
+        </span>
+        <ul class="flex-1 flex">
+            <li class="w-1/2 md:w-1/5">
+              <a class="" href="/shop/cellphone">小众手机</a>
+            </li>
+        </ul>
+      </div>
+
+      <div class="flex items-center my-2">
+        <span class="mr-5">
+          <svg viewBox="0 0 512 512" class="svg">
+            <path opacity=".4" d="M128 256C57.308 256 0 313.308 0 384c0 70.692 57.308 128 128 128 70.692 0 128-57.308 128-128 0-70.692-57.308-128-128-128zm379.51-80l-95-160c-12.67-21.33-44.35-21.33-57 0l-95 160c-12.67 21.33 3.17 48 28.51 48H479c25.34 0 41.18-26.67 28.51-48z"/><path d="M512 320v160c0 17.673-14.327 32-32 32H320c-17.673 0-32-14.327-32-32V320c0-17.673 14.327-32 32-32h160c17.673 0 32 14.327 32 32z"/>
+          </svg>
+        </span>
+        <ul class="flex-1 flex">
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="flex items-center my-5">
+    <div class="w-1/6 text-right text-orange-600 mr-5">外设</div>
+    <div class="flex-1">
+      <div class="flex items-center my-2">
+        <span class="mr-5">
+          <svg viewBox="0 0 448 512" class="svg">
+            <path opacity=".4" d="M.06 160v-.13l96 .06v-32C96.12 57.35 153.57 0 224.15 0c70.58 0 128 57.49 127.92 128.07V160h-64v-32.002c.021-35.346-28.615-64.017-63.962-64.038-35.346-.021-64.017 28.615-64.038 63.962v32h64z"/><path d="M.06 159.87l-.16 272v.002c-.026 44.183 35.77 80.022 79.952 80.048l288 .16c44.183 0 80-35.817 80-80l.16-272zM128 247.94c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24zm192 .12c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24z"/>
+          </svg>
+        </span>
+        <ul class="flex-1 flex">
+            <li class="w-1/2 md:w-1/5">
+              <a class="" href="/shop/soundset">声音玄学</a>
+            </li>
+            <li class="w-1/2 md:w-1/5">
+              <a class="" href="/shop/kbdman">KBDMan</a>
+            </li>
+        </ul>
+      </div>
+
+      <div class="flex items-center my-2">
+        <span class="mr-5">
+          <svg viewBox="0 0 512 512" class="svg">
+            <path opacity=".4" d="M128 256C57.308 256 0 313.308 0 384c0 70.692 57.308 128 128 128 70.692 0 128-57.308 128-128 0-70.692-57.308-128-128-128zm379.51-80l-95-160c-12.67-21.33-44.35-21.33-57 0l-95 160c-12.67 21.33 3.17 48 28.51 48H479c25.34 0 41.18-26.67 28.51-48z"/><path d="M512 320v160c0 17.673-14.327 32-32 32H320c-17.673 0-32-14.327-32-32V320c0-17.673 14.327-32 32-32h160c17.673 0 32 14.327 32 32z"/>
+          </svg>
+        </span>
+        <ul class="flex-1 flex">
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="flex items-center my-5">
+    <div class="w-1/6 text-right text-orange-600 mr-5">生活</div>
+    <div class="flex-1">
+      <div class="flex items-center my-2">
+        <span class="mr-5">
+          <svg viewBox="0 0 448 512" class="svg">
+            <path opacity=".4" d="M.06 160v-.13l96 .06v-32C96.12 57.35 153.57 0 224.15 0c70.58 0 128 57.49 127.92 128.07V160h-64v-32.002c.021-35.346-28.615-64.017-63.962-64.038-35.346-.021-64.017 28.615-64.038 63.962v32h64z"/><path d="M.06 159.87l-.16 272v.002c-.026 44.183 35.77 80.022 79.952 80.048l288 .16c44.183 0 80-35.817 80-80l.16-272zM128 247.94c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24zm192 .12c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24z"/>
+          </svg>
+        </span>
+        <ul class="flex-1 flex">
+        </ul>
+      </div>
+
+      <div class="flex items-center my-2">
+        <span class="mr-5">
+          <svg viewBox="0 0 512 512" class="svg">
+            <path opacity=".4" d="M128 256C57.308 256 0 313.308 0 384c0 70.692 57.308 128 128 128 70.692 0 128-57.308 128-128 0-70.692-57.308-128-128-128zm379.51-80l-95-160c-12.67-21.33-44.35-21.33-57 0l-95 160c-12.67 21.33 3.17 48 28.51 48H479c25.34 0 41.18-26.67 28.51-48z"/><path d="M512 320v160c0 17.673-14.327 32-32 32H320c-17.673 0-32-14.327-32-32V320c0-17.673 14.327-32 32-32h160c17.673 0 32 14.327 32 32z"/>
+          </svg>
+        </span>
+        <ul class="flex-1 flex">
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="flex items-center my-5">
+    <div class="w-1/6 text-right text-orange-600 mr-5">Apple</div>
+    <div class="flex-1">
+      <div class="flex items-center my-2">
+        <span class="mr-5">
+          <svg viewBox="0 0 448 512" class="svg">
+            <path opacity=".4" d="M.06 160v-.13l96 .06v-32C96.12 57.35 153.57 0 224.15 0c70.58 0 128 57.49 127.92 128.07V160h-64v-32.002c.021-35.346-28.615-64.017-63.962-64.038-35.346-.021-64.017 28.615-64.038 63.962v32h64z"/><path d="M.06 159.87l-.16 272v.002c-.026 44.183 35.77 80.022 79.952 80.048l288 .16c44.183 0 80-35.817 80-80l.16-272zM128 247.94c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24zm192 .12c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24z"/>
+          </svg>
+        </span>
+        <ul class="flex-1 flex">
+        </ul>
+      </div>
+
+      <div class="flex items-center my-2">
+        <span class="mr-5">
+          <svg viewBox="0 0 512 512" class="svg">
+            <path opacity=".4" d="M128 256C57.308 256 0 313.308 0 384c0 70.692 57.308 128 128 128 70.692 0 128-57.308 128-128 0-70.692-57.308-128-128-128zm379.51-80l-95-160c-12.67-21.33-44.35-21.33-57 0l-95 160c-12.67 21.33 3.17 48 28.51 48H479c25.34 0 41.18-26.67 28.51-48z"/><path d="M512 320v160c0 17.673-14.327 32-32 32H320c-17.673 0-32-14.327-32-32V320c0-17.673 14.327-32 32-32h160c17.673 0 32 14.327 32 32z"/>
+          </svg>
+        </span>
+        <ul class="flex-1 flex">
+        </ul>
+      </div>
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+</header>
+
+
+    
+
+    <div class="container flex-1 px-2 sm:px-10 mx-auto">
+      
+    </div>
+
+    <div class="container flex flex-wrap flex-1 px-2 sm:px-10 mx-auto mt-3 sm:mt-5 md:flex-no-wrap">
+
+      <main class="flex-1">
+
+  <div class="box p-3 mb-5">
+    <ol class="inline-flex items-center">
+      <li>
+        <a href="/" class="inline-flex items-center">
+          <span class="mr-2">
+            <svg viewBox="0 0 576 512" class="h-4 w-4 fill-current">
+              <path opacity=".4" d="M336 463.58v-95.64c0-8.837-7.163-16-16-16h-64c-8.837 0-16 7.163-16 16v95.71c0 8.806-7.115 15.956-15.92 16l-112.08.29c-8.837 0-16-7.163-16-16V300.05L280.39 148.2a12.19 12.19 0 0 1 15.3 0L480 299.94v164c0 8.837-7.164 16-16 16l-112-.31c-8.837 0-16-7.163-16-16a16 16 0 0 1 0-.05z"/><path d="M530.92 300.94L295.69 107.2a12.19 12.19 0 0 0-15.3 0L45.17 300.94c-5.117 4.21-12.679 3.476-16.89-1.64l-25.5-31c-4.218-5.11-3.497-12.67 1.61-16.89l253.1-208.47c17.72-14.581 43.28-14.581 61 0l253.13 208.47c5.122 4.205 5.866 11.767 1.66 16.89l-25.5 31c-4.209 5.097-11.748 5.83-16.86 1.64z"/>
+            </svg>
+          </span>
+          <span>geekhub</span>
+        </a>
+      </li>
+      <li class="mx-2">/</li>
+      <li>geekhub 文档</li>
+    </ol>
+  </div>
+
+  <div class="box">
+    <div class="flex justify-between p-3 border-b border-primary-300">
+      <div class="flex-1 inline-flex items-center">
+          <span class="mr-2">
+            <svg viewBox="0 0 448 512" class="svg">
+              <path opacity=".4" d="M16 288h416c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16z"/><path d="M432 384H16c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h416c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16zm0-320H16C7.163 64 0 71.163 0 80v32c0 8.837 7.163 16 16 16h416c8.837 0 16-7.163 16-16V80c0-8.837-7.163-16-16-16z"/>
+            </svg>
+          </span>
+        <h2>常见问题</h2>
+      </div>
+    </div>
+
+    <div class="story px-3 py-5">
+      <p>常见问题</p>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<sidebar id="sidebar" class="flex flex-col justify-between w-full mt-5 ml-0 md:w-72 md:flex-shrink-0 md:mt-0 md:ml-5">
+
+  <div>
+      <div class="p-3 box6">
+
+  <div class="flex justify-between">
+    <div class="flex">
+        <img class="object-cover w-10 h-10 mr-3 rounded-full" src="https://www.geekhub.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcThxIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--66aa3a0ea68406743e205a38e7efbcf446216823/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdWcFpRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--9b2f90d233a4ff09c1f0dc85853bf4f2670db00a/62784811.png" />
+      <div>
+        <div class="flex items-center">
+          <h4><a href="/u/karanokk">karanokk</a></h4>
+          <div class="inline-flex items-center ml-3">
+              <img width="15" height="15" title="创始会员" class="" loading="lazy" src="/medal/foundermember.png" />
+              <img width="15" height="15" title="钉子户" class="" loading="lazy" src="/medal/dingzihu.png" />
+          </div>
+        </div>
+        <div class="minor text-xs text-left truncate ...">
+            <a href="/settings" class="minor text-xs">设置我的签名</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-3">
+    <div class="w-full rounded shadow-inner bg-primary-300 overflow-hidden">
+      <div class="h-1 rounded bg-secondary-600" style="width: 15%;"></div>
+    </div>
+  </div>
+
+  <div class="flex items-center py-3 text-center border-b border-color">
+      <span class="flex flex-col flex-1">
+        <span>3</span>
+        <span>店铺</span>
+      </span>
+
+    <span class="flex flex-col flex-1 border-l border-color">
+        <span>4</span>
+        <span>小组</span>
+      </span>
+
+    <span class="flex flex-col flex-1 border-l border-color">
+        <span>5</span>
+        <span>GR</span>
+      </span>
+
+  </div>
+
+
+  <div class="py-2.5 pl-0 border-b border-color flex">
+    <a class="flex-1 inline-flex items-center mr-2 hover:text-secondary-600" href="/user_orders/buyer">
+      <span class="mr-2">
+        <svg viewBox="0 0 512 512" class="svg fill-current">
+          <path opacity=".4" d="M512 488v.12c-.033 13.221-10.778 23.913-24 23.88H151.88c-13.221-.033-23.913-10.778-23.88-24V352h127.63v64.9c0 14.27 17.28 21.34 27.37 11.27L378.56 332c6.565-6.626 6.565-17.304 0-23.93l-95.49-96.25c-10.09-10.07-27.37-3-27.37 11.27v65H128V23.88C128.033 10.66 138.778-.033 152 0h232v112c0 8.837 7.163 16 16 16h112z"/><path d="M505 105L407.1 7a24 24 0 0 0-17-7H384v112c0 8.837 7.163 16 16 16h112v-6.1a23.9 23.9 0 0 0-7-16.9zM283.07 211.82c-10.09-10.07-27.37-3-27.37 11.27v65H16c-8.837 0-16 7.163-16 16V336c0 8.837 7.163 16 16 16h239.63v64.9c0 14.27 17.28 21.34 27.37 11.27L378.56 332c6.565-6.626 6.565-17.304 0-23.93z"/>
+        </svg>
+      </span>
+      <span>买入订单</span>
+</a>    <a class="flex-1 inline-flex items-center ml-2 hover:text-secondary-600" href="/user_orders/seller">
+      <span class="mr-2">
+        <svg viewBox="0 0 576 512" class="svg fill-current">
+          <path opacity=".4" d="M384 352.05v136.07c-.033 13.221-10.778 23.913-24 23.88H23.88C10.66 511.967-.033 501.222 0 488V23.88C.033 10.66 10.778-.033 24 0h232v112c0 8.837 7.163 16 16 16h112v160.05H208c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16z"/><path d="M272 128h112v-6.1a23.9 23.9 0 0 0-7-16.9L279.1 7a24 24 0 0 0-17-7H256v112c0 8.837 7.163 16 16 16zm299 180.05l-95.61-96.5c-10.1-10.1-27.41-3-27.41 11.3v65.2H208c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h239.93v65.1c0 14.3 17.31 21.4 27.41 11.3l95.71-96.4c6.597-6.648 6.575-17.38-.05-24z"/>
+        </svg>
+      </span>
+      <span>卖出订单</span>
+</a>  </div>
+
+  <div class="py-2.5 pl-0 border-b border-color flex">
+    <a class="flex-1 inline-flex items-center mr-2 hover:text-secondary-600" href="/gbit_orders">
+      <span class="mr-2">
+        <svg viewBox="0 0 512 512" class="svg fill-current">
+          <path opacity=".4" d="M192 0H32C14.327 0 0 14.327 0 32v160c0 17.673 14.327 32 32 32h160c17.673 0 32-14.327 32-32V32c0-17.673-14.327-32-32-32zm-16 120a8 8 0 0 1-8 8H56a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h112a8 8 0 0 1 8 8zm16 168H32c-17.673 0-32 14.327-32 32v160c0 17.673 14.327 32 32 32h160c17.673 0 32-14.327 32-32V320c0-17.673-14.327-32-32-32zm-29.09 140.29a8 8 0 0 1 0 11.31l-11.31 11.31a8 8 0 0 1-11.31 0L112 422.63l-28.29 28.29a8 8 0 0 1-11.31 0L61.09 439.6a8 8 0 0 1 0-11.31L89.37 400l-28.29-28.29a8 8 0 0 1 0-11.31l11.31-11.31a8 8 0 0 1 11.31 0l28.3 28.28 28.29-28.29a8 8 0 0 1 11.31 0l11.31 11.31a8 8 0 0 1 0 11.31L134.63 400zM480 0H320c-17.673 0-32 14.327-32 32v160c0 17.673 14.327 32 32 32h160c17.673 0 32-14.327 32-32V32c0-17.673-14.327-32-32-32zm-16 120a8 8 0 0 1-8 8h-40v40a8 8 0 0 1-8 8h-16a8 8 0 0 1-8-8v-40h-40a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h40V56a8 8 0 0 1 8-8h16a8 8 0 0 1 8 8v40h40a8 8 0 0 1 8 8z"/><path d="M162.91 360.39l-11.31-11.31a8 8 0 0 0-11.31 0L112 377.37l-28.3-28.28a8 8 0 0 0-11.31 0L61.08 360.4a8 8 0 0 0 0 11.31L89.37 400l-28.28 28.29a8 8 0 0 0 0 11.31l11.31 11.32a8 8 0 0 0 11.31 0L112 422.63l28.29 28.28a8 8 0 0 0 11.31 0l11.31-11.31a8 8 0 0 0 0-11.31L134.63 400l28.28-28.3a8 8 0 0 0 0-11.31zM344 128h40v40a8 8 0 0 0 8 8h16a8 8 0 0 0 8-8v-40h40a8 8 0 0 0 8-8v-16a8 8 0 0 0-8-8h-40V56a8 8 0 0 0-8-8h-16a8 8 0 0 0-8 8v40h-40a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8zM168 96H56a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8h112a8 8 0 0 0 8-8v-16a8 8 0 0 0-8-8zm312 192H320c-17.673 0-32 14.327-32 32v160c0 17.673 14.327 32 32 32h160c17.673 0 32-14.327 32-32V320c0-17.673-14.327-32-32-32zm-16 152a8 8 0 0 1-8 8H344a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h112a8 8 0 0 1 8 8zm0-64a8 8 0 0 1-8 8H344a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h112a8 8 0 0 1 8 8z"/>
+        </svg>
+      </span>
+      <span>福利订单</span>
+</a>    <a class="flex-1 inline-flex items-center ml-2 hover:text-secondary-600" href="/my/tickets">
+      <span class="mr-2">
+        <svg viewBox="0 0 384 512" class="svg fill-current">
+          <path opacity=".4" d="M360 0H24C10.778-.033.033 10.658 0 23.88V488c-.033 13.222 10.658 23.967 23.88 24H360c13.222.033 23.967-10.658 24-23.88V24c.033-13.222-10.658-23.967-23.88-24H360zM161.7 202.4l12.6 12.7a5.37 5.37 0 0 1 0 7.6l-64.2 63.6a5.37 5.37 0 0 1-7.6 0L65.6 249a5.37 5.37 0 0 1 0-7.6l12.7-12.6a5.37 5.37 0 0 1 7.6 0l20.6 20.8 47.6-47.2a5.37 5.37 0 0 1 7.6 0zM64 112c0-8.837 7.163-16 16-16h32c8.837 0 16 7.163 16 16v32c0 8.837-7.163 16-16 16H80c-8.837 0-16-7.163-16-16zm64 288c0 8.837-7.163 16-16 16H80c-8.837 0-16-7.163-16-16v-32c0-8.837 7.163-16 16-16h32c8.837 0 16 7.163 16 16zm192-8a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8zm-9.6-120H170.2s29.2-30.2 30.4-32h109.7c5.3 0 9.6 3.6 9.6 8v16h.1c0 4.4-4.3 8-9.6 8zm9.6-136a8 8 0 0 1-8 8H168a8 8 0 0 1-8-8v-16a8 8 0 0 1 8-8h144a8 8 0 0 1 8 8z"/><path d="M80 160h32c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16H80c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16zm94.3 55.1l-12.6-12.7a5.37 5.37 0 0 0-7.6 0l-47.6 47.2-20.6-20.8a5.37 5.37 0 0 0-7.6 0l-12.7 12.6a5.37 5.37 0 0 0 0 7.6l36.9 37.3a5.37 5.37 0 0 0 7.6 0l64.2-63.6a5.37 5.37 0 0 0 0-7.6zM112 352H80c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h32c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16z"/>
+        </svg>
+      </span>
+      <span>我的工单</span>
+</a>  </div>
+
+  <div class="py-2.5 pb-0 pl-0 flex">
+    <a class="flex-1 inline-flex items-center mr-2 hover:text-secondary-600" href="/u/karanokk">
+      <span class="mr-2">
+        <svg viewBox="0 0 640 512" class="svg fill-current">
+          <path opacity=".4" d="M0 256v128c0 17.673 14.327 32 32 32h32V224H32c-17.673 0-32 14.327-32 32zm608-32h-32v192h32c17.673 0 32-14.327 32-32V256c0-17.673-14.327-32-32-32zM192 416h64v-32h-64zm192 0h64v-32h-64zm-96 0h64v-32h-64z"/><path d="M464 96H352V32c0-17.673-14.327-32-32-32-17.673 0-32 14.327-32 32v64H176c-44.183 0-80 35.817-80 80v272-.001c.032 35.332 28.666 63.967 63.999 64h320c35.332-.032 63.966-28.667 64-64V176c0-44.182-35.818-80-80-80zM256 416h-64v-32h64zm-32-120c-22.091 0-40-17.909-40-40s17.909-40 40-40 40 17.909 40 40-17.909 40-40 40zm128 120h-64v-32h64zm96 0h-64v-32h64zm-32-120c-22.091 0-40-17.909-40-40s17.909-40 40-40 40 17.909 40 40-17.909 40-40 40z"/>
+        </svg>
+      </span>
+      <span>个人中心</span>
+</a>    <a class="flex-1 inline-flex items-center ml-2 hover:text-secondary-600" href="/settings">
+      <span class="mr-2">
+        <svg viewBox="0 0 640 512" class="svg fill-current">
+          <path opacity=".4" d="M358.9 433.3l-6.8 61c-.983 8.737 5.303 16.617 14.04 17.6a15.92 15.92 0 0 0 3.56 0l60.9-6.8 137.9-137.9-71.7-71.7zM633 268.9L595.1 231c-9.356-9.279-24.444-9.279-33.8 0l-37.8 37.8-4.1 4.1 71.8 71.7 41.8-41.8c9.301-9.386 9.301-24.514 0-33.9z"/><path d="M313.6 288h-16.7a174.08 174.08 0 0 1-145.8 0h-16.7C60.18 288.017.017 348.18 0 422.4V464c0 26.51 21.49 48 48 48h274.9a48 48 0 0 1-2.6-21.3l6.8-60.9 1.2-11.1 85.2-85.2c-24.5-27.7-60-45.5-99.9-45.5zM224 256c70.692 0 128-57.308 128-128C352 57.308 294.692 0 224 0 153.308 0 96 57.307 96 128c0 70.692 57.308 128 128 128z"/>
+        </svg>
+      </span>
+      <span>账号设置</span>
+</a>  </div>
+
+</div>
+
+  <div class="p-3 mt-5 box6">
+
+  <div class="flex justify-between items-center">
+    <div class="w-3/12">
+      <div>Gbit</div>
+      <div>Star</div>
+      <div>Score</div>
+    </div>
+    <div class="w-3/12">
+      <div>2330</div>
+      <div>19</div>
+      <div>0.00</div>
+    </div>
+    <div class="w-6/12 flex flex-col">
+      <a class="m-1 btn btn-white flex items-center justify-center" href="/gbit_store">
+        <span class="mr-2">
+          <svg viewBox="0 0 576 512" class="svg svg-sm fill-current">
+            <path opacity=".4" d="M0 416h576v48c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48zm528-288h-57.66c-15.136 29.469-45.481 47.998-78.61 48h-48.48l62.41 51.71c6.25 6.248 6.25 16.378.003 22.627l-.003.003-11.31 11.31c-6.248 6.25-16.378 6.25-22.627.003l-.003-.003L288 188.07l-83.73 73.59c-6.248 6.25-16.378 6.25-22.627.003l-.003-.003-11.31-11.31c-6.25-6.248-6.25-16.378-.003-22.627l.003-.003L232.75 176h-48.48c-33.129-.002-63.474-18.531-78.61-48H48c-26.51 0-48 21.49-48 48v144h576V176c0-26.51-21.49-48-48-48z"/><path d="M0 320v96h576v-96zm184.27-144h48.48l-62.41 51.72c-6.25 6.248-6.25 16.378-.003 22.627l.003.003 11.31 11.31c6.248 6.25 16.378 6.25 22.627.003l.003-.003L288 188.07l83.71 73.58c6.248 6.25 16.378 6.25 22.627.003l.003-.003 11.31-11.31c6.25-6.248 6.25-16.378.003-22.627l-.003-.003-62.4-51.71h48.48C440.4 176 480 136.52 480 88S440.4 0 391.73 0c-17.4 0-38.41 2.65-62.2 22.31C317.35 32.37 304.27 47 288 68.89c-16.32-22-29.51-36.61-41.87-46.75C222.37 2.63 201.52 0 184.27 0 135.6 0 96 39.48 96 88s39.6 88 88.27 88zM391.73 48c22.091 0 40 17.909 40 40s-17.909 40-40 40h-86.67c51.74-76.5 66.14-80 86.67-80zm-207.46 0c20 0 34.83 3.3 86.67 80h-86.67c-22.091 0-40-17.909-40-40s17.909-40 40-40z"/>
+          </svg>
+        </span>
+        <span>积分兑换</span>
+</a>      <a class="m-1 btn btn-white flex items-center justify-center" href="/checkins">
+        <span class="mr-2">
+          <svg viewBox="0 0 448 512" class="svg svg-sm fill-current">
+            <path opacity=".4" d="M0 192v272c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V192zm345.26 113l-143 141.8c-4.678 4.694-12.276 4.708-16.97.03a12 12 0 0 1-.03-.03l-82.6-83.26c-4.678-4.695-4.664-12.293.03-16.97l.03-.03.08-.08 28.4-28.17c4.678-4.694 12.276-4.708 16.97-.03l.03.03 46 46.36 106-105.19c4.678-4.694 12.276-4.708 16.97-.03l.03.03L345.3 288c4.683 4.69 4.679 12.287-.01 16.97l-.03.03zM304 128h32c8.837 0 16-7.163 16-16V16c0-8.837-7.163-16-16-16h-32c-8.837 0-16 7.163-16 16v96c0 8.837 7.163 16 16 16zm-192 0h32c8.837 0 16-7.163 16-16V16c0-8.837-7.163-16-16-16h-32c-8.837 0-16 7.163-16 16v96c0 8.837 7.163 16 16 16z"/><path d="M345.33 288l-28.2-28.4c-4.65-4.722-12.248-4.78-16.97-.13l-.03.03-106 105.19-46-46.36c-4.653-4.72-12.251-4.773-16.97-.12l-.03.03-28.4 28.17c-4.722 4.65-4.78 12.248-.13 16.97l.03.03 82.6 83.26c4.65 4.722 12.248 4.78 16.97.13l.03-.03 143-141.8c4.722-4.65 4.78-12.248.13-16.97l-.03-.03zM400 64h-48v48c0 8.837-7.163 16-16 16h-32c-8.837 0-16-7.163-16-16V64H160v48c0 8.837-7.163 16-16 16h-32c-8.837 0-16-7.163-16-16V64H48C21.49 64 0 85.49 0 112v80h448v-80c0-26.51-21.49-48-48-48z"/>
+          </svg>
+        </span>
+        <span>每日签到</span>
+</a>    </div>
+  </div>
+
+    <div class="border-t border-color pt-3 mt-2">
+
+      <div class="flex items-center justify-between">
+        <input id="clip" class="form-input block w-full text-sm leading-5 p-1 mr-3 focus:outline-none" value="https://www.geekhub.com/r/4VQlmA">
+
+        <!-- Trigger -->
+        <button class="clip mr-1" data-clipboard-target="#clip" data-balloon-blunt aria-label="复制" data-balloon-pos="down">
+          <span>
+            <svg viewBox="0 0 288 384" class="svg items-center" alt="Copy to clipboard">
+              <path d="M32 352V48H0v336h240v-32H48z"/><path d="M213.3 0H48v336h240V75L213.3 0zM256 112h-80V32h16v64h64v16z"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+
+      <span class="block meta pt-2">分享你的专属 ref 链接，每天最高可额外获得 100 个 Gbit</span>
+    </div>
+
+
+
+</div>
+
+
+      <div class="box6 mt-5">
+
+    <div class="flex items-center justify-between p-3 pb-0">
+      <div class="flex-1">
+        <h4>推荐主题</h4>
+        <span class="sub">重要的信息</span>
+      </div>
+    </div>
+
+    <ul class="p-3">
+
+      <li class="py-2 border-t border-color">
+        <a href="/molecules/125">迎接黑五 手工木作小店首次分子活动 开启啦</a>
+      </li>
+
+
+      <li class="py-2 border-t border-color">
+        <a href="/molecules/126">[福利贴]入驻geekhub店铺第二天,我要抽奖!</a>
+      </li>
+
+    </ul>
+
+  </div>
+
+    
+      <div class="p-3 pb-1 mt-5 box6">
+  <div class="mb-3">
+    <h4>GeekHub 文档</h4>
+  </div>
+
+  <nav class="flex flex-col flex-1">
+      <a class="inline-flex items-center py-2 border-t border-color" href="/page/about">
+        <span>
+          <svg viewBox="0 0 512 512" class="svg svg-sm">
+            <path opacity=".4" d="M496 384H176c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h320c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16zm0-320H176c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h320c8.837 0 16-7.163 16-16V80c0-8.837-7.163-16-16-16zm0 160H176c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h320c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16z"/><path d="M48 48C21.49 48 0 69.49 0 96s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm0 160c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm0 160c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/>
+          </svg>
+        </span>
+        <span class="ml-3">
+          关于 geekhub
+        </span>
+      </a>
+      <a class="inline-flex items-center py-2 border-t border-color" href="/page/rules">
+        <span>
+          <svg viewBox="0 0 512 512" class="svg svg-sm">
+            <path opacity=".4" d="M496 384H176c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h320c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16zm0-320H176c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h320c8.837 0 16-7.163 16-16V80c0-8.837-7.163-16-16-16zm0 160H176c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h320c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16z"/><path d="M48 48C21.49 48 0 69.49 0 96s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm0 160c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm0 160c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/>
+          </svg>
+        </span>
+        <span class="ml-3">
+          geekhub 社区规则
+        </span>
+      </a>
+      <a class="inline-flex items-center py-2 border-t border-color" href="/page/gbit">
+        <span>
+          <svg viewBox="0 0 512 512" class="svg svg-sm">
+            <path opacity=".4" d="M496 384H176c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h320c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16zm0-320H176c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h320c8.837 0 16-7.163 16-16V80c0-8.837-7.163-16-16-16zm0 160H176c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h320c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16z"/><path d="M48 48C21.49 48 0 69.49 0 96s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm0 160c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm0 160c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/>
+          </svg>
+        </span>
+        <span class="ml-3">
+          Gbit 积分规则
+        </span>
+      </a>
+      <a class="inline-flex items-center py-2 border-t border-color" href="/page/payment">
+        <span>
+          <svg viewBox="0 0 512 512" class="svg svg-sm">
+            <path opacity=".4" d="M496 384H176c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h320c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16zm0-320H176c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h320c8.837 0 16-7.163 16-16V80c0-8.837-7.163-16-16-16zm0 160H176c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h320c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16z"/><path d="M48 48C21.49 48 0 69.49 0 96s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm0 160c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm0 160c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/>
+          </svg>
+        </span>
+        <span class="ml-3">
+          支付方式
+        </span>
+      </a>
+      <a class="inline-flex items-center py-2 border-t border-color" href="/page/faq">
+        <span>
+          <svg viewBox="0 0 512 512" class="svg svg-sm">
+            <path opacity=".4" d="M496 384H176c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h320c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16zm0-320H176c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h320c8.837 0 16-7.163 16-16V80c0-8.837-7.163-16-16-16zm0 160H176c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h320c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16z"/><path d="M48 48C21.49 48 0 69.49 0 96s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm0 160c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm0 160c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/>
+          </svg>
+        </span>
+        <span class="ml-3">
+          常见问题
+        </span>
+      </a>
+  </nav>
+</div>
+    <div class="p-3 mt-5 box6">
+    <div>
+      <h4>今日热门</h4>
+    </div>
+      <div class="flex items-center pt-3 mt-3 border-t border-color text-xs">
+          <img class="h-5 w-5 object-cover rounded mr-3" src="https://www.geekhub.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbklZIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c2a4b8da0f89b1471aa098e6e3b4e310a7be80f6/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBJZ2h3Ym1jNkZISmxjMmw2WlY5MGIxOXNhVzFwZEZzSGFUVnBOUT09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--88afc0ff6cde9ac2807af1561ab44e3ed4ef7a81/1599809273(1).jpg" />
+        <span>
+          <a class="hot-feed" href="/molecules/133">
+            分子10元花费
+
+</a>        </span>
+      </div>
+      <div class="flex items-center pt-3 mt-3 border-t border-color text-xs">
+          <img class="h-5 w-5 object-cover rounded mr-3" src="https://www.geekhub.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdGNWIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a0ca512f76c8b40580261450c46e1ee3e476cd63/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVRWcE5RPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--e1780a816401fc30800a5f6b2cd27df94f6ca18f/1746760515.png" />
+        <span>
+          <a class="hot-feed" href="/posts/2320">
+            苹果M1芯片装jdk
+
+</a>        </span>
+      </div>
+      <div class="flex items-center pt-3 mt-3 border-t border-color text-xs">
+          <img class="h-5 w-5 object-cover rounded mr-3" src="https://www.geekhub.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBandnIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--080e8c025d920caef609e145cb01c2b4fe523d61/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVRWcE5RPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--e1780a816401fc30800a5f6b2cd27df94f6ca18f/%E7%9F%B3%E5%8D%9A%E6%96%87.png" />
+        <span>
+          <a class="hot-feed" href="/posts/2321">
+            如果有一天你不干程序员了，准备干什么呢？
+
+</a>        </span>
+      </div>
+      <div class="flex items-center pt-3 mt-3 border-t border-color text-xs">
+          <img class="h-5 w-5 object-cover rounded mr-3" src="https://www.geekhub.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbEFMIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--66c8132e664fd560fb71f3da0238def327541c60/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVRWcE5RPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--629053848ddc2e255941d74277e5afa29943330c/QQ%E5%9B%BE%E7%89%8720180403230811.jpg" />
+        <span>
+          <a class="hot-feed" href="/posts/2319">
+            迫于拍卖帖子发帖太难
+
+</a>        </span>
+      </div>
+      <div class="flex items-center pt-3 mt-3 border-t border-color text-xs">
+          <img class="h-5 w-5 object-cover rounded mr-3" src="https://www.geekhub.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdFlJIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--4a7126e4c03cd7ae2ca2d51a054313d2e9821162/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVRWcE5RPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--e1780a816401fc30800a5f6b2cd27df94f6ca18f/KICON_GOLD.png" />
+        <span>
+          <a class="hot-feed" href="/posts/2318">
+            12月20日删除域名推荐
+
+</a>        </span>
+      </div>
+      <div class="flex items-center pt-3 mt-3 border-t border-color text-xs">
+          <img class="h-5 w-5 object-cover rounded mr-3" src="https://www.geekhub.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaW9MIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--99b92b4546e92ca29d45e8cdc2a522956adc0a70/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVRWcE5RPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--629053848ddc2e255941d74277e5afa29943330c/20190908214355_tjzyd.jpg" />
+        <span>
+          <a class="hot-feed" href="/posts/2322">
+            招商最低5元话费券
+
+</a>        </span>
+      </div>
+  </div>
+
+  <div class="p-3 mt-5 box">
+
+  <div>
+    <h4>快捷操作</h4>
+    <span class="meta">为什么不用 Ctrl？因为 Ctrl 都被浏览器占用了</span>
+  </div>
+
+  <div class="pt-3 mt-3 sub border-t border-color">
+    <ul>
+      <li class="flex items-center"><span class="w-1/2 mr-3">快捷回复</span><span class="flex-1 text-xs sub">⌘ + Enter</span></li>
+      <li class="flex items-center"><span class="w-1/2 mr-3">回到首页</span><span class="flex-1 text-xs sub">Opt+a, Alt+a</span></li>
+      <li class="flex items-center"><span class="w-1/2 mr-3">定位到页头</span><span class="flex-1 text-xs sub">Opt+v, Alt+v</span></li>
+      <li class="flex items-center"><span class="w-1/2 mr-3">定位到页尾</span><span class="flex-1 text-xs sub">Opt+b, Alt+b</span></li>
+      <li class="flex items-center"><span class="w-1/2 mr-3">发布新主题</span><span class="flex-1 text-xs sub">Opt+w, Alt+w</span></li>
+      <li class="flex items-center"><span class="w-1/2 mr-3">福利社</span><span class="flex-1 text-xs sub">Opt+g, Alt+g</span></li>
+      <li class="flex items-center"><span class="w-1/2 mr-3">消息通知</span><span class="flex-1 text-xs sub">Opt+e, Alt+e</span></li>
+    </ul>
+  </div>
+
+</div>
+
+
+    
+  <div class="box6 p-3 mt-5">
+
+    <a class="follow-openstack" href="#">
+      <div class="flex items-center justify-between">
+        <span class="">我的关注</span>
+        <span>
+          <svg viewBox="0 0 448 512" class="svg svg-sm transform minor fill-current">
+            <path d="M441.9 167.3l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 328.2 42.9 147.5c-4.7-4.7-12.3-4.7-17 0L6.1 167.3c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z"/>
+          </svg>
+        </span>
+      </div>
+    </a>
+
+    <a class="follow-closestack" href="#">
+      <div class="flex items-center justify-between">
+        <span class="">我的关注</span>
+        <span>
+          <svg viewBox="0 0 448 512" class="svg svg-sm transform minor rotate-180 fill-current">
+            <path d="M441.9 167.3l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 328.2 42.9 147.5c-4.7-4.7-12.3-4.7-17 0L6.1 167.3c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z"/>
+          </svg>
+        </span>
+      </div>
+    </a>
+
+    <div class="follow-stackmenu border-t border-color mt-3 pt-3">
+      <div class="flex flex-col items-start space-y-5">
+            <div class="w-full flex flex-col">
+      <div class="flex items-center minor mb-2">
+        <span>
+          <svg viewBox="0 0 512 512" class="svg ml-1 mr-4">
+            <path opacity=".4" d="M128 256C57.308 256 0 313.308 0 384c0 70.692 57.308 128 128 128 70.692 0 128-57.308 128-128 0-70.692-57.308-128-128-128zm379.51-80l-95-160c-12.67-21.33-44.35-21.33-57 0l-95 160c-12.67 21.33 3.17 48 28.51 48H479c25.34 0 41.18-26.67 28.51-48z"/><path d="M512 320v160c0 17.673-14.327 32-32 32H320c-17.673 0-32-14.327-32-32V320c0-17.673 14.327-32 32-32h160c17.673 0 32 14.327 32 32z"/>
+          </svg>
+        </span>
+        <span class="mr-5">店铺</span>
+      </div>
+
+      <div class="flex flex-col items-start">
+            <a class="w-full flex items-center justify-between hover:text-secondary-600 my-2" href="/shop/life">
+              <div class="flex items-center">
+                <span>
+                    <img class="h-6 w-6 rounded-full mr-3" src="/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBNQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--676a7a7ab4310c40df6f9dc4a5f5e0f8828fa905/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdWcFpRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--9b2f90d233a4ff09c1f0dc85853bf4f2670db00a/1024px-Xiaomi_logo.svg.png" />
+                </span>
+                <span>小米链渠道店</span>
+              </div>
+              <div class="meta mr-2">
+                <span>2</span>
+              </div>
+</a>            <a class="w-full flex items-center justify-between hover:text-secondary-600 my-2" href="/shop/xiaoma">
+              <div class="flex items-center">
+                <span>
+                    <img class="h-6 w-6 rounded-full mr-3" src="/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBb1FvIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ac4eff88fc1fd86fb1fb937dc2e0c853965ddaae/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdWcFpRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--9b2f90d233a4ff09c1f0dc85853bf4f2670db00a/PikPng.com_vpn-png_5450936.png" />
+                </span>
+                <span>小马的小卖部</span>
+              </div>
+              <div class="meta mr-2">
+                <span>5</span>
+              </div>
+</a>            <a class="w-full flex items-center justify-between hover:text-secondary-600 my-2" href="/shop/kbdman">
+              <div class="flex items-center">
+                <span>
+                    <img class="h-6 w-6 rounded-full mr-3" src="/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaVVxIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--112c850a3211cc8f737844e4216970ddac436fc1/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdWcFpRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--9b2f90d233a4ff09c1f0dc85853bf4f2670db00a/encrypted-tbn0.png" />
+                </span>
+                <span>KBDMan</span>
+              </div>
+              <div class="meta mr-2">
+                <span>5</span>
+              </div>
+</a>      </div>
+    </div>
+
+            <div class="w-full flex flex-col">
+      <div class="flex items-center minor mb-2">
+        <span>
+          <svg viewBox="0 0 512 512" class="svg ml-1 mr-4">
+            <path opacity=".4" d="M128 256C57.308 256 0 313.308 0 384c0 70.692 57.308 128 128 128 70.692 0 128-57.308 128-128 0-70.692-57.308-128-128-128zm379.51-80l-95-160c-12.67-21.33-44.35-21.33-57 0l-95 160c-12.67 21.33 3.17 48 28.51 48H479c25.34 0 41.18-26.67 28.51-48z"/><path d="M512 320v160c0 17.673-14.327 32-32 32H320c-17.673 0-32-14.327-32-32V320c0-17.673 14.327-32 32-32h160c17.673 0 32 14.327 32 32z"/>
+          </svg>
+        </span>
+        <span class="mr-5">小组</span>
+      </div>
+      <div class="flex flex-col items-start">
+            <a class="w-full flex items-center justify-between hover:text-secondary-600 my-2" href="/club/unbox">
+              <div class="flex items-center">
+                <span>
+                    <img class="h-6 w-6 rounded-full mr-3" src="/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdUlkIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6f30a398ef94318cf04643094906e5f7809bd01d/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdWcFpRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--9b2f90d233a4ff09c1f0dc85853bf4f2670db00a/Package__Package_Delivery_Box_Parcel_Shipping-14-512.png" />
+                </span>
+                <span>拆箱小组</span>
+              </div>
+              <div class="meta mr-2">
+                <span>101</span>
+              </div>
+</a>            <a class="w-full flex items-center justify-between hover:text-secondary-600 my-2" href="/club/renaissance">
+              <div class="flex items-center">
+                <span>
+                    <img class="h-6 w-6 rounded-full mr-3" src="/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdTBnIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2b6019c7b1b36e05bb3ed7bc54f292185d931eec/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdWcFpRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--9b2f90d233a4ff09c1f0dc85853bf4f2670db00a/gh.png" />
+                </span>
+                <span>文艺复兴™</span>
+              </div>
+              <div class="meta mr-2">
+                <span>7</span>
+              </div>
+</a>            <a class="w-full flex items-center justify-between hover:text-secondary-600 my-2" href="/club/itislife">
+              <div class="flex items-center">
+                <span>
+                    <img class="h-6 w-6 rounded-full mr-3" src="/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdGNkIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1b9bcedc669c8f499f867cb11c6cfd0f9a4354d1/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdWcFpRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--5a8a377aff17b2225a6e8dfad8085268578566e0/223344.jpg" />
+                </span>
+                <span>饮食男女</span>
+              </div>
+              <div class="meta mr-2">
+                <span>13</span>
+              </div>
+</a>      </div>
+    </div>
+
+            <div class="flex flex-col flex-grow">
+      <div class="flex items-center minor mb-2">
+        <span>
+          <svg viewBox="0 0 512 512" class="svg ml-1 mr-4">
+            <path opacity=".4" d="M128 256C57.308 256 0 313.308 0 384c0 70.692 57.308 128 128 128 70.692 0 128-57.308 128-128 0-70.692-57.308-128-128-128zm379.51-80l-95-160c-12.67-21.33-44.35-21.33-57 0l-95 160c-12.67 21.33 3.17 48 28.51 48H479c25.34 0 41.18-26.67 28.51-48z"/><path d="M512 320v160c0 17.673-14.327 32-32 32H320c-17.673 0-32-14.327-32-32V320c0-17.673 14.327-32 32-32h160c17.673 0 32 14.327 32 32z"/>
+          </svg>
+        </span>
+        <span class="mr-5">主题</span>
+      </div>
+      <div class="flex flex-col items-start">
+          <a class="w-full flex items-center justify-between hover:text-secondary-600 my-2" href="/posts/200">
+  <div class="flex items-center">
+    <span>
+        <img class="h-6 w-6 rounded-full mr-3" src="https://www.geekhub.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBZzBFIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--878d7229736672bfd9cc1dbec968f009d52a819d/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdWcFpRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--9b2f90d233a4ff09c1f0dc85853bf4f2670db00a/%E8%B1%86%E8%B1%86%E7%9A%AE%E7%9A%AE%E7%9A%AE%E8%B1%86.png" />
+    </span>
+    <span>怎么快速找到我星标过的主题？</span>
+  </div>
+</a><a class="w-full flex items-center justify-between hover:text-secondary-600 my-2" href="/posts/212">
+  <div class="flex items-center">
+    <span>
+        <img class="h-6 w-6 rounded-full mr-3" src="https://www.geekhub.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcHNKIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c62ad3dd48ffb26bfd704e2512d1c34a34627443/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdWcFpRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--5a8a377aff17b2225a6e8dfad8085268578566e0/OIP.jpg" />
+    </span>
+    <span>福利社的磨砂护肤质感手机...</span>
+  </div>
+</a><a class="w-full flex items-center justify-between hover:text-secondary-600 my-2" href="/posts/1592">
+  <div class="flex items-center">
+    <span>
+        <img class="h-6 w-6 rounded-full mr-3" src="https://www.geekhub.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbHNMIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f84150b76294a22f829c2c967959da1203ba9841/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdWcFpRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--9b2f90d233a4ff09c1f0dc85853bf4f2670db00a/iPhone%208.png" />
+    </span>
+    <span>2020年9月，川西行记...</span>
+  </div>
+</a>
+          
+          
+          
+          <a class="w-full flex items-center justify-between hover:text-secondary-600 my-2" href="/molecules/12">
+  <div class="flex items-center">
+    <span>
+        <img class="h-6 w-6 rounded-full mr-3" src="https://www.geekhub.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcThxIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--66aa3a0ea68406743e205a38e7efbcf446216823/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdWcFpRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--9b2f90d233a4ff09c1f0dc85853bf4f2670db00a/62784811.png" />
+    </span>
+    <span># [ROLL] 抽个腾...</span>
+  </div>
+</a>
+          
+          
+      </div>
+    </div>
+
+            <div class="flex flex-col flex-grow">
+      <div class="flex items-center minor mb-2">
+        <span>
+          <svg viewBox="0 0 512 512" class="svg ml-1 mr-4">
+            <path opacity=".4" d="M128 256C57.308 256 0 313.308 0 384c0 70.692 57.308 128 128 128 70.692 0 128-57.308 128-128 0-70.692-57.308-128-128-128zm379.51-80l-95-160c-12.67-21.33-44.35-21.33-57 0l-95 160c-12.67 21.33 3.17 48 28.51 48H479c25.34 0 41.18-26.67 28.51-48z"/><path d="M512 320v160c0 17.673-14.327 32-32 32H320c-17.673 0-32-14.327-32-32V320c0-17.673 14.327-32 32-32h160c17.673 0 32 14.327 32 32z"/>
+          </svg>
+        </span>
+        <span>用户</span>
+      </div>
+      <div class="flex flex-col items-start">
+            <a class="w-full flex items-center justify-between hover:text-secondary-600 my-2" href="/u/cherry">
+              <div class="flex items-center">
+                <span>
+                    <img class="h-6 w-6 rounded-full mr-3" src="/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--9ad7c43d791e92c0a00bb59d189f61f8c3442b39/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdWcFpRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--5a8a377aff17b2225a6e8dfad8085268578566e0/3f0a40529b22454772f785bee6f94b47.jpg" />
+                </span>
+                <span>cherry</span>
+              </div>
+              <div class="meta mr-2">
+                <span></span>
+              </div>
+</a>            <a class="w-full flex items-center justify-between hover:text-secondary-600 my-2" href="/u/GH%E6%B4%BB%E5%8A%A8%E5%8F%B7">
+              <div class="flex items-center">
+                <span>
+                    <img class="h-6 w-6 rounded-full mr-3" src="/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBb29KIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--cc24b1f0e2b30fd00bacc6e989b28e18bfab2ba7/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdWcFpRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--5a8a377aff17b2225a6e8dfad8085268578566e0/CleanShot%202020-04-28%20at%2016.38.34.jpg" />
+                </span>
+                <span>GH活动号</span>
+              </div>
+              <div class="meta mr-2">
+                <span></span>
+              </div>
+</a>            <a class="w-full flex items-center justify-between hover:text-secondary-600 my-2" href="/u/PlanZ">
+              <div class="flex items-center">
+                <span>
+                    <img class="h-6 w-6 rounded-full mr-3" src="/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdWdKIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6315d2aae90fc5306f939c06919c8e26554e4878/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdWcFpRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--5a8a377aff17b2225a6e8dfad8085268578566e0/CleanShot%202020-04-29%20at%2019.58.12.jpg" />
+                </span>
+                <span>PlanZ</span>
+              </div>
+              <div class="meta mr-2">
+                <span></span>
+              </div>
+</a>            <a class="w-full flex items-center justify-between hover:text-secondary-600 my-2" href="/u/karanokk">
+              <div class="flex items-center">
+                <span>
+                    <img class="h-6 w-6 rounded-full mr-3" src="/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcThxIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--66aa3a0ea68406743e205a38e7efbcf446216823/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdWcFpRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--9b2f90d233a4ff09c1f0dc85853bf4f2670db00a/62784811.png" />
+                </span>
+                <span>karanokk</span>
+              </div>
+              <div class="meta mr-2">
+                <span></span>
+              </div>
+</a>            <a class="w-full flex items-center justify-between hover:text-secondary-600 my-2" href="/u/%E5%AD%A4%E7%8B%AC%E7%9A%84%E6%B5%B7%E6%80%AA">
+              <div class="flex items-center">
+                <span>
+                    <img class="h-6 w-6 rounded-full mr-3" src="/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBa0FnIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--cc38f183bb2762cfaae370b2f24e0e8e59e9452d/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdWcFpRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--9b2f90d233a4ff09c1f0dc85853bf4f2670db00a/44.png" />
+                </span>
+                <span>孤独的海怪</span>
+              </div>
+              <div class="meta mr-2">
+                <span></span>
+              </div>
+</a>      </div>
+    </div>
+
+      </div>
+    </div>
+  </div>
+
+
+    
+    <div class="box6 mt-5 p-3">
+  <div>
+    <h4>Site Stats</h4>
+  </div>
+
+  <div class="flex flex-col border-t border-color mt-3 pt-3 space-y-2">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        <span class="mr-2">
+          <svg viewBox="0 0 640 512" class="svg fill-current">
+            <path opacity=".4" d="M96 224c35.346 0 64-28.654 64-64 0-35.346-28.654-64-64-64-35.346 0-64 28.654-64 64v-.001c.032 35.332 28.666 63.967 63.999 64zm480 32h-64a63.81 63.81 0 0 0-45.1 18.6A146.27 146.27 0 0 1 542 384h66c17.673 0 32-14.327 32-32v-32 .001c-.032-35.332-28.666-63.967-63.998-64.001zm-512 0c-35.333.033-63.967 28.668-64 64v32c0 17.673 14.327 32 32 32h65.9a146.64 146.64 0 0 1 75.2-109.4A63.81 63.81 0 0 0 128 256zm480-32c35.346 0 64-28.654 64-64 0-35.346-28.654-64-64-64-35.346 0-64 28.654-64 64v-.001c.032 35.332 28.666 63.967 63.999 64z"/><path d="M396.8 288h-8.3a157.53 157.53 0 0 1-68.5 16c-24.6 0-47.6-6-68.5-16h-8.3c-63.616.017-115.183 51.584-115.2 115.2V432c0 26.51 21.49 48 48 48h288c26.51 0 48-21.49 48-48v-28.8.03c0-63.616-51.554-115.197-115.17-115.23zM320 256c61.856 0 112-50.144 112-112S381.856 32 320 32 208 82.144 208 144v.005C207.97 205.828 258.063 255.97 319.885 256h.12z"/>
+          </svg>
+        </span>
+        <span>
+          注册用户
+        </span>
+      </div>
+      <div class="minor">
+        6090
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        <span class="mr-2">
+          <svg viewBox="0 0 448 512" class="svg fill-current">
+            <path opacity=".4" d="M202.46 32.19a11.5 11.5 0 0 0-2.11-.19h-40.63a12 12 0 0 0-11.81 9.89L132.53 128h65l14.62-81.89c1.164-6.519-3.173-12.748-9.69-13.92zM72.19 465.89c-1.164 6.522 3.178 12.753 9.7 13.92A11.5 11.5 0 0 0 84 480h40.64a12 12 0 0 0 11.81-9.89L186.11 192h-65zm163.65 0c-1.164 6.522 3.178 12.753 9.7 13.92a11.5 11.5 0 0 0 2.11.19h40.63a12 12 0 0 0 11.82-9.89L315.47 384h-65zm130.27-433.7A11.5 11.5 0 0 0 364 32h-40.63a12 12 0 0 0-11.82 9.89L261.89 320h65l48.92-273.89c1.164-6.522-3.178-12.753-9.7-13.92z"/><path d="M44.18 191.81a11.5 11.5 0 0 0 2.11.19H285l11-64H53.43a12 12 0 0 0-11.81 9.89l-7.14 40c-1.164 6.522 3.178 12.753 9.7 13.92zM7.33 329.89l-7.14 40c-1.164 6.522 3.178 12.753 9.7 13.92A11.5 11.5 0 0 0 12 384h75l11-64H19.15a12 12 0 0 0-11.82 9.89zm430.78-201.7A11.5 11.5 0 0 0 436 128h-75l-11 64h78.85a12 12 0 0 0 11.82-9.89l7.14-40c1.164-6.522-3.178-12.753-9.7-13.92zm-34.29 192a11.5 11.5 0 0 0-2.11-.19H163l-11 64h242.57a12 12 0 0 0 11.81-9.89l7.14-40c1.164-6.522-3.178-12.753-9.7-13.92z"/>
+          </svg>
+        </span>
+        <span>
+          主题数量
+        </span>
+      </div>
+      <div class="minor">
+        2959
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        <span class="mr-2">
+          <svg viewBox="0 0 512 512" class="svg fill-current">
+            <path opacity=".4" d="M496 384H176c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h320c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16zm0-320H176c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h320c8.837 0 16-7.163 16-16V80c0-8.837-7.163-16-16-16zm0 160H176c-8.837 0-16 7.163-16 16v32c0 8.837 7.163 16 16 16h320c8.837 0 16-7.163 16-16v-32c0-8.837-7.163-16-16-16z"/><path d="M80 368H16c-8.837 0-16 7.163-16 16v64c0 8.837 7.163 16 16 16h64c8.837 0 16-7.163 16-16v-64c0-8.837-7.163-16-16-16zm0-320H16C7.163 48 0 55.163 0 64v64c0 8.837 7.163 16 16 16h64c8.837 0 16-7.163 16-16V64c0-8.837-7.163-16-16-16zm0 160H16c-8.837 0-16 7.163-16 16v64c0 8.837 7.163 16 16 16h64c8.837 0 16-7.163 16-16v-64c0-8.837-7.163-16-16-16z"/>
+          </svg>
+        </span>
+        <span>
+          讨论数量
+        </span>
+      </div>
+      <div class="minor">
+        55665
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+              <div class="box6 mt-5 p-3">
+    <div>
+      <h4>企业微信客服</h4>
+      <span class="meta">新老客户可微信扫描二维码，咨询客服下单。</span>
+    </div>
+
+    <div class="flex items-center border-t border-color mt-3 pt-3">
+      <img class="w-32 h-32 border border-color rounded-lg mr-4 flex-shrink-0" src="https://www.geekhub.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaEVoIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8bc635ff6544c8f3e5f21906589795ecac922a62/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFJWUFXa0NHQUU9IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--2c7455d8d016832b2fd3dd7377f7b419f19f4de8/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_1603440442842.png" />
+      <div>
+        <h3>咨询下单</h3>
+        <div class="meta">扫二维码</div>
+        <div class="meta">联系企业微信</div>
+        <div class="meta">客服小姐姐</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="box box-orange mt-3 px-3 py-2">
+      <div>当前在线客服：
+          <a class="text-orange-800" href="/u/%E5%A4%A7%E8%84%B8%E7%8C%AB">大脸猫</a>
+      </div>
+  </div>
+
+
+
+  </div>
+  <div>
+          <div class="p-3 py-3 mt-5 box2 flex justify-between items-center">
+<span class="sub">go to</span>
+<a href="https://appletuan.com" target="_blank" rel="noreferrer">appletuan →</a>
+</div>
+
+  </div>
+
+</sidebar>
+
+
+
+      
+    </div>
+
+    
+
+    <footer class="flex-shrink h-auto mt-3 sm:mt-5 border-t border-primary-200 bg-tertiary-99 fix-box-bg">
+  <div class="container px-3 sm:px-10 mx-auto">
+    <nav class="mt-2 flex items-center">
+      <ul class="inline-flex items-center flex-wrap">
+        <li class="truncate">
+  <a href="/page/about">关于 geekhub</a>
+</li><li class="meta mr-3">•</li><li class="truncate">
+  <a href="/page/rules">rules</a>
+</li><li class="meta mr-3">•</li><li class="truncate">
+  <a href="/page/gbit">积分规则</a>
+</li><li class="meta mr-3">•</li><li class="truncate">
+  <a href="/page/payment">支付方式</a>
+</li><li class="meta mr-3">•</li><li class="truncate">
+  <a href="/page/faq">faq</a>
+</li>
+      </ul>
+      <span class="meta mx-3">•</span>
+      <ul class="inline-flex items-center flex-wrap">
+        <li class="truncate">
+  <a href="/tickets/new?category=进驻 GeekHub">进驻</a>
+</li><li class="meta mr-3">•</li><li class="truncate">
+  <a href="/tickets/new?category=合作">合作</a>
+</li><li class="meta mr-3">•</li><li class="truncate">
+  <a href="/tickets/new?category=提交 BUG">提交 BUG</a>
+</li><li class="meta mr-3">•</li><li class="truncate">
+  <a href="/page/api">API</a>
+</li>
+      </ul>
+    </nav>
+    <div class="flex justify-between">
+      <div class="flex flex-col mt-3 mb-3 meta">
+        汇聚最好的渠道<br/>
+The stuff only we care about<br/>
+粤ICP备19000122号-2<br/>
+do |best| end
+      </div>
+      <div>
+        <div>
+          <span class="text-primary-500 opacity-75">
+
+<svg width="188" height="39" viewBox="0 0 403.301 96.4" xmlns="http://www.w3.org/2000/svg" class="fill-current">
+<path d="M 193.6 0 L 193.6 44 Q 195.8 41.6 198.15 39 Q 200.5 36.4 202.7 33.85 Q 204.9 31.3 206.85 29 Q 208.8 26.7 210.2 25 L 227.9 25 Q 222.6 31.1 217.55 36.65 A 269.235 269.235 0 0 1 210.867 43.724 A 319.474 319.474 0 0 1 206.5 48.1 Q 209.5 50.8 212.7 54.55 Q 215.9 58.3 218.9 62.3 A 115.027 115.027 0 0 1 224.086 69.8 A 105.504 105.504 0 0 1 224.4 70.3 A 123.866 123.866 0 0 1 226.568 73.896 Q 227.556 75.603 228.371 77.159 A 72.452 72.452 0 0 1 228.6 77.6 L 211.5 77.6 Q 209.9 75 207.85 71.85 Q 205.8 68.7 203.5 65.55 Q 201.2 62.4 198.65 59.5 Q 196.1 56.6 193.6 54.6 L 193.6 77.6 L 178.7 77.6 L 178.7 2.4 L 193.6 0 Z M 251.5 77.6 L 236.6 77.6 L 236.6 2.4 L 251.5 0 L 251.5 25.2 A 20.47 20.47 0 0 1 252.688 24.847 Q 253.267 24.693 253.932 24.543 A 46.182 46.182 0 0 1 255.35 24.25 Q 257.7 23.8 259.9 23.8 A 38.677 38.677 0 0 1 264.398 24.046 Q 267.894 24.456 270.55 25.55 A 18.173 18.173 0 0 1 274.586 27.819 A 15.232 15.232 0 0 1 277.35 30.5 A 18.476 18.476 0 0 1 280.419 36.232 A 22.251 22.251 0 0 1 280.95 38.1 A 37.63 37.63 0 0 1 281.799 43.366 A 49.214 49.214 0 0 1 282 47.9 L 282 77.6 L 267.1 77.6 L 267.1 49.7 Q 267.1 44.05 265.961 40.987 A 8.419 8.419 0 0 0 265.25 39.5 A 5.819 5.819 0 0 0 262.116 37.054 Q 261.063 36.682 259.748 36.56 A 14.587 14.587 0 0 0 258.4 36.5 A 20.279 20.279 0 0 0 255.883 36.651 A 17.122 17.122 0 0 0 254.65 36.85 Q 252.9 37.2 251.5 37.6 L 251.5 77.6 Z M 47.9 26.8 L 47.9 71 A 40.438 40.438 0 0 1 47.323 78.073 Q 45.956 85.755 41.35 90.15 A 20.031 20.031 0 0 1 34.251 94.422 Q 31.188 95.535 27.41 96.021 A 49.482 49.482 0 0 1 21.1 96.4 Q 16.3 96.4 11.5 95.55 Q 6.7 94.7 2.6 93.3 L 5.2 80.8 Q 8.7 82.2 12.55 83 Q 16.28 83.775 20.995 83.799 A 59.428 59.428 0 0 0 21.3 83.8 Q 27.7 83.8 30.35 81 A 9.566 9.566 0 0 0 32.887 75.553 A 13.115 13.115 0 0 0 33 73.8 L 33 71.9 Q 30.6 73 28.05 73.55 Q 25.5 74.1 22.5 74.1 Q 13.204 74.1 7.618 69.408 A 18.072 18.072 0 0 1 5.8 67.65 Q 0.669 61.943 0.077 52.205 A 42.989 42.989 0 0 1 0 49.6 A 32.419 32.419 0 0 1 0.57 43.407 A 26.586 26.586 0 0 1 1.8 39.05 Q 3.6 34.3 7.05 30.9 A 22.736 22.736 0 0 1 13.606 26.432 A 27.195 27.195 0 0 1 15.5 25.65 Q 20.5 23.8 26.8 23.8 A 63.18 63.18 0 0 1 31.995 24.02 A 69.008 69.008 0 0 1 32.35 24.05 Q 35.2 24.3 38 24.7 Q 40.8 25.1 43.35 25.65 A 71.015 71.015 0 0 1 45.692 26.195 Q 46.869 26.491 47.9 26.8 Z M 340.4 25 L 340.4 75.8 Q 336.6 76.9 330.6 77.85 Q 324.6 78.8 318 78.8 Q 311.3 78.8 306.85 77 Q 302.4 75.2 299.8 71.95 A 18.964 18.964 0 0 1 296.676 66.175 A 23.038 23.038 0 0 1 296.1 64.2 Q 295 59.7 295 54.3 L 295 25 L 309.9 25 L 309.9 52.5 Q 309.9 59.7 311.8 62.9 A 6.055 6.055 0 0 0 315.19 65.562 Q 316.767 66.1 318.9 66.1 A 38.33 38.33 0 0 0 320.978 66.041 A 45.949 45.949 0 0 0 322.3 65.95 Q 324.1 65.8 325.5 65.6 L 325.5 25 L 340.4 25 Z M 108.5 56.2 L 74.7 56.2 A 9.847 9.847 0 0 0 78.538 63.155 A 12.174 12.174 0 0 0 79 63.5 Q 82.186 65.763 87.198 66.129 A 27.5 27.5 0 0 0 89.2 66.2 Q 93.3 66.2 97.25 65.45 Q 101.2 64.7 103.7 63.6 L 105.7 75.7 Q 104.5 76.3 102.5 76.9 Q 100.5 77.5 98.05 77.95 A 66.242 66.242 0 0 1 94.851 78.454 A 79.564 79.564 0 0 1 92.8 78.7 Q 90 79 87.2 79 A 40.566 40.566 0 0 1 81.342 78.598 Q 77.803 78.081 74.85 76.9 A 26.194 26.194 0 0 1 69.514 74.047 A 21.967 21.967 0 0 1 66.15 71.15 Q 62.7 67.5 61.05 62.5 A 33.158 33.158 0 0 1 59.479 54.199 A 39.024 39.024 0 0 1 59.4 51.7 A 38.609 38.609 0 0 1 59.842 45.716 Q 60.375 42.321 61.55 39.45 A 29.015 29.015 0 0 1 64.306 34.231 A 23.628 23.628 0 0 1 67.2 30.7 Q 70.7 27.2 75.25 25.4 Q 79.8 23.6 84.6 23.6 Q 95.8 23.6 102.3 30.45 A 21.774 21.774 0 0 1 107.15 38.834 Q 108.8 43.898 108.8 50.6 Q 108.8 51.9 108.7 53.45 Q 108.614 54.782 108.528 55.856 A 105.95 105.95 0 0 1 108.5 56.2 Z M 166.9 56.2 L 133.1 56.2 A 9.847 9.847 0 0 0 136.938 63.155 A 12.174 12.174 0 0 0 137.4 63.5 Q 140.586 65.763 145.598 66.129 A 27.5 27.5 0 0 0 147.6 66.2 Q 151.7 66.2 155.65 65.45 Q 159.6 64.7 162.1 63.6 L 164.1 75.7 Q 162.9 76.3 160.9 76.9 Q 158.9 77.5 156.45 77.95 A 66.242 66.242 0 0 1 153.251 78.454 A 79.564 79.564 0 0 1 151.2 78.7 Q 148.4 79 145.6 79 A 40.566 40.566 0 0 1 139.742 78.598 Q 136.203 78.081 133.25 76.9 A 26.194 26.194 0 0 1 127.914 74.047 A 21.967 21.967 0 0 1 124.55 71.15 Q 121.1 67.5 119.45 62.5 A 33.158 33.158 0 0 1 117.879 54.199 A 39.024 39.024 0 0 1 117.8 51.7 A 38.609 38.609 0 0 1 118.242 45.716 Q 118.775 42.321 119.95 39.45 A 29.015 29.015 0 0 1 122.706 34.231 A 23.628 23.628 0 0 1 125.6 30.7 Q 129.1 27.2 133.65 25.4 Q 138.2 23.6 143 23.6 Q 154.2 23.6 160.7 30.45 A 21.774 21.774 0 0 1 165.55 38.834 Q 167.2 43.898 167.2 50.6 Q 167.2 51.9 167.1 53.45 Q 167.014 54.782 166.928 55.856 A 105.95 105.95 0 0 1 166.9 56.2 Z M 354.4 75.9 L 354.4 2.4 L 369.3 0 L 369.3 26.2 Q 371.8 25.1 374.5 24.5 A 25.308 25.308 0 0 1 378.402 23.959 A 30.182 30.182 0 0 1 380.3 23.9 A 27.339 27.339 0 0 1 385.498 24.372 A 21.003 21.003 0 0 1 390.2 25.85 Q 394.5 27.8 397.4 31.4 A 23.422 23.422 0 0 1 400.726 37.035 A 29.061 29.061 0 0 1 401.8 40.05 Q 403.3 45.1 403.3 51.3 Q 403.3 57.6 401.45 62.7 A 24.942 24.942 0 0 1 398.033 69.13 A 22.646 22.646 0 0 1 396.1 71.4 A 23.002 23.002 0 0 1 389.055 76.3 A 27.185 27.185 0 0 1 387.5 76.95 A 29.051 29.051 0 0 1 380.951 78.578 A 38.148 38.148 0 0 1 375.9 78.9 Q 373.2 78.9 370.25 78.65 Q 367.3 78.4 364.45 78 A 82.055 82.055 0 0 1 359.984 77.251 A 72.789 72.789 0 0 1 359 77.05 A 69.758 69.758 0 0 1 356.695 76.523 Q 355.617 76.257 354.669 75.979 A 40.652 40.652 0 0 1 354.4 75.9 Z M 369.3 38.6 L 369.3 65.7 Q 370.4 65.9 372.1 66.05 A 38.07 38.07 0 0 0 374.108 66.171 A 48.265 48.265 0 0 0 375.8 66.2 A 14.054 14.054 0 0 0 379.56 65.726 A 9.837 9.837 0 0 0 385 62 Q 387.777 58.238 388.067 52.309 A 28.901 28.901 0 0 0 388.1 50.9 A 28.825 28.825 0 0 0 387.68 45.734 Q 386.064 36.911 378.243 36.518 A 14.8 14.8 0 0 0 377.5 36.5 Q 375.2 36.5 372.95 37.1 A 17.749 17.749 0 0 0 371.382 37.592 Q 370.628 37.871 370.003 38.195 A 8.757 8.757 0 0 0 369.3 38.6 Z M 33 60.1 L 33 36.3 Q 31.9 36.1 30.4 35.95 A 27.985 27.985 0 0 0 28.992 35.847 Q 28.267 35.812 27.453 35.803 A 50.567 50.567 0 0 0 26.9 35.8 A 14.11 14.11 0 0 0 23.39 36.21 A 9.238 9.238 0 0 0 18.1 39.7 A 14.245 14.245 0 0 0 15.643 45.233 A 20.425 20.425 0 0 0 15.2 49.6 A 22.717 22.717 0 0 0 15.617 54.162 Q 17.056 61.15 23.466 61.986 A 14.185 14.185 0 0 0 25.3 62.1 A 15.601 15.601 0 0 0 28.321 61.816 A 13.594 13.594 0 0 0 29.6 61.5 A 20.313 20.313 0 0 0 31.235 60.937 Q 32.213 60.55 33 60.1 Z M 74.7 46 L 94.4 46 Q 94.3 44.1 93.75 42.3 Q 93.2 40.5 92.05 39.1 A 8.86 8.86 0 0 0 89.683 37.093 A 10.4 10.4 0 0 0 89.15 36.8 Q 87.598 36.002 85.376 35.911 A 14.215 14.215 0 0 0 84.8 35.9 Q 82.3 35.9 80.5 36.75 A 9.195 9.195 0 0 0 78.244 38.237 A 8.365 8.365 0 0 0 77.5 39 A 9.999 9.999 0 0 0 75.734 42.021 A 11.38 11.38 0 0 0 75.65 42.25 Q 75 44.1 74.7 46 Z M 133.1 46 L 152.8 46 Q 152.7 44.1 152.15 42.3 Q 151.6 40.5 150.45 39.1 A 8.86 8.86 0 0 0 148.083 37.093 A 10.4 10.4 0 0 0 147.55 36.8 Q 145.998 36.002 143.776 35.911 A 14.215 14.215 0 0 0 143.2 35.9 Q 140.7 35.9 138.9 36.75 A 9.195 9.195 0 0 0 136.644 38.237 A 8.365 8.365 0 0 0 135.9 39 A 9.999 9.999 0 0 0 134.134 42.021 A 11.38 11.38 0 0 0 134.05 42.25 Q 133.4 44.1 133.1 46 Z" vector-effect="non-scaling-stroke"/>
+</svg>
+
+</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div>
+    <a href="#" id="back-to-top" title="Back to top" class="flex items-center justify-center">&uarr;</a>
+  </div>
+</footer>
+
+  </div>
+
+
+</body>
+</html>
