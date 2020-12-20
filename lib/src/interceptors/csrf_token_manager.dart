@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import 'utils.dart' show extractCSRFToken;
+import '../utils.dart' show extractCSRFToken;
 
 /// 为 GeekHub 的请求添加 CSRFToken
 /// 利用 Dio 的拦截器，在发送请求时,根据需求获取 CSRFToken 并添加到到请求的表单中。

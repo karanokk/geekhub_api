@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:geekhub_api/src/csrf_token_manager.dart';
+import 'package:geekhub_api/src/interceptors/csrf_token_manager.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
