@@ -1,2 +1,4 @@
 dart run test_coverage --no-badge
-lcov --remove coverage/lcov.info -o coverage/lcov.info  '*.freezed.dart'
+dart run tools/lcov_remove.dart coverage/lcov.info
+genhtml -o coverage coverage/lcov.info
+open coverage/index.html

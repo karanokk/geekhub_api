@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image:  google/dart:latest
+      image:  google/dart:beta
 
     steps:
       - uses: actions/checkout@v2
@@ -21,14 +21,11 @@ jobs:
 
       - name: Install dependencies
         run: dart pub get
-      
-      - name: Install lcov
-        run: |
-          sudo apt update
-          sudo apt install lcov
 
       - name: Run tests
-        run: ./test
+        run: |
+          dart run test_coverage --no-badge
+          dart run tools/lcov_remove.dart coverage/lcov.info
       
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
