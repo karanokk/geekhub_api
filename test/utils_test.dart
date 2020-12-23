@@ -27,4 +27,14 @@ void main() {
       }
     });
   });
+
+  test('.snakeToCamel()', () {
+    final result = snakeToCamel('geek_hub_home');
+    expect(result == 'geekHubHome', isTrue);
+  });
+
+  test('.camelToSnake()', () {
+    final result = camelToSnake('geekHubHome');
+    expect(result == 'geek_hub_home', isTrue);
+  });
 }

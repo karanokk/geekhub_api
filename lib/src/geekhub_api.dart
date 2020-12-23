@@ -6,9 +6,11 @@ import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 
+import 'entities/feed.dart';
 import 'faliures.dart';
 import 'interceptors/auth_state.dart';
 import 'interceptors/csrf_token_manager.dart';
+import 'parsers/feed_parser.dart';
 import 'utils.dart' show UnWrappedErrorDio;
 
 class GeekHubAPI {
@@ -16,7 +18,7 @@ class GeekHubAPI {
       : assert(cookieDir != null),
         _dio = dio ?? UnWrappedErrorDio() {
     _dio.options = _dio.options.merge(
-      baseUrl: 'https://www.geekhub.com',
+      baseUrl: 'https://www.geekhub.com/',
       responseType: ResponseType.plain,
       validateStatus: (status) => status <= 302,
       followRedirects: false,
@@ -62,10 +64,78 @@ class GeekHubAPI {
   //            查看            //
   // ------------------------- //
 
+  /// 刷新验证码
+  ///
+  /// [t] 当前时间戳（毫秒）
+  ///
+  /// GET /rucaptcha
+  Future<List<int>> getRucaptcha({int t}) {
+    Map<String, dynamic> queryParameters;
+    if (t != null) {
+      queryParameters = {'t': DateTime.now().millisecondsSinceEpoch};
+    }
+    return _dio
+        .get<List<int>>(
+          '/rucaptcha/',
+          options: Options(responseType: ResponseType.bytes),
+          queryParameters: queryParameters,
+        )
+        .then((value) => value.data);
+  }
+
+  /// 获取主页帖子
+  ///
+  /// GET /
+  Future<List<Feed>> getFeeds({int page}) async {
+    final htmlStr = await _dioGetText('/', queryParameters: {'page': page});
+    return parseFeeds(htmlStr);
+  }
+
   // ------------------------- //
   //          状态更新          //
   // ------------------------- //
 
+  /// Cookies 登陆
+  Future<bool> signInWithCookies(List<Cookie> cookies) {
+    _cookieManager.cookieJar
+        .saveFromResponse(Uri.parse(_dio.options.baseUrl), cookies);
+    return isUserAuthenticated();
+  }
+
+  /// 用户名密码登陆
+  ///
+  /// 成功重定向主页，失败重定向 /users/sign_in
+  ///
+  /// POST /users/sign_in
+  Future<bool> signInWithNameAndPassword({
+    @required String name,
+    @required String password,
+    @required String rucaptcha,
+  }) async {
+    final formData = FormData.fromMap({
+      'user[login]': name,
+      'user[password]': password,
+      '_rucaptcha': rucaptcha,
+      'user[remember_me]': 'on',
+    });
+    final response = await _dio.post('/users/sign_in', data: formData);
+    if (response.statusCode == 302 &&
+        response.headers[HttpHeaders.locationHeader].last ==
+            _dio.options.baseUrl) {
+      _log.fine('$name 登陆成功');
+      return true;
+    }
+    _log.warning('$name 登陆失败 - ${response.toString()}');
+    return false;
+  }
+
+  /// DELETE /users/sign_out
+  Future<void> signOut() async {
+    await _dio.delete('/users/sign_out');
+    (_cookieManager.cookieJar as PersistCookieJar).deleteAll();
+  }
+
+  /// 签到
   /// POST /checkins
   Future<bool> checkIn() async {
     final formData = FormData.fromMap({'_method': 'POST'});
@@ -77,6 +147,7 @@ class GeekHubAPI {
     return result;
   }
 
+  /// 星标评论
   /// PATCH /comments/[commentId]/toggle_star
   Future<int> toggleCommentStar(int commentId) async {
     final response =
@@ -93,7 +164,8 @@ class GeekHubAPI {
     }
   }
 
-  // PATCH https://geekhub.com/settings 302
+  /// 更新账户数据
+  /// PATCH https://geekhub.com/settings 302
   Future<void> updateAccountSettings({
     // 账号信息
     String email,
@@ -168,6 +240,7 @@ class GeekHubAPI {
   //            创建            //
   // ------------------------- //
 
+  /// 评论
   /// POST /comments
   Future<void> comment({
     @required String targetType,
@@ -190,4 +263,14 @@ class GeekHubAPI {
       throw const GeekHubAPIFaliure.unexpected();
     }
   }
+
+  Future<String> _dioGetText(
+    String path, {
+    Map<String, dynamic> queryParameters,
+  }) =>
+      _dio
+          .get<String>(path,
+              queryParameters: queryParameters,
+              options: Options(responseType: ResponseType.plain))
+          .then((e) => e.data);
 }
