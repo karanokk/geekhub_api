@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
-import 'package:geekhub_api/src/faliures.dart';
+
+import '../faliures.dart';
 
 class AuthState extends Interceptor {
   AuthState(this.signInPath);
@@ -10,7 +13,8 @@ class AuthState extends Interceptor {
     final request = response.request;
     if (request.path != signInPath &&
         response.statusCode == 302 &&
-        response.headers['location'].first.endsWith(signInPath)) {
+        response.headers[HttpHeaders.locationHeader].first
+            .endsWith(signInPath)) {
       throw const GeekHubAPIFaliure.unAuthenticated();
     }
     return super.onResponse(response);
