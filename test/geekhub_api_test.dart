@@ -77,5 +77,10 @@ void main() {
       final result = await api.getFeeds(page: 1);
       expect(result.isNotEmpty, isTrue);
     });
+
+    test('.getPost()', () async {
+      final result = await api.getPost(type: 'Auctions', id: 96);
+      expect(result, isNotNull);
+    });
   });
 }
