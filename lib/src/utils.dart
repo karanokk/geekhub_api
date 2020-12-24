@@ -97,11 +97,10 @@ String camelToSnake(String text) {
   for (int i = 0; i < text.length; i++) {
     final ch = text[i];
     final lowerCh = ch.toLowerCase();
-    if (lowerCh != ch) {
-      sb..write('_')..write(lowerCh);
-    } else {
-      sb.write(ch);
+    if (lowerCh != ch && i != 0) {
+      sb.write('_');
     }
+    sb.write(lowerCh);
   }
   return sb.toString();
 }

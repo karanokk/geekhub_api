@@ -36,5 +36,7 @@ void main() {
   test('.camelToSnake()', () {
     final result = camelToSnake('geekHubHome');
     expect(result == 'geek_hub_home', isTrue);
+    final result2 = camelToSnake('GeekHubHome');
+    expect(result2 == 'geek_hub_home', isTrue);
   });
 }
