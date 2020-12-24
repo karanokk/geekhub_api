@@ -8,7 +8,7 @@ import '../utils.dart' show ElementHelper, parseTime;
 
 Post parsePost(String htmlStr) {
   final doc = parse(htmlStr);
-  final mainbox = doc.querySelector('main > div[class*=box]');
+  final mainbox = doc.querySelector('main > div[class^=box]');
   final navigationA = mainbox.querySelector('div.p-3 > ol > li:last-child > a');
   final navigationTitle = navigationA.text.trim();
   final navigationUrl = navigationA.href;
