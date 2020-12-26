@@ -330,6 +330,10 @@ class GeekHubAPI {
     }
   }
 
+  /// 可用于提供给浏览器，使用网页完成部分功能
+  List<Cookie> getCookies() =>
+      _cookieManager.cookieJar.loadForRequest(Uri.parse(_dio.options.baseUrl));
+
   int _getStarCountFromResponse(Response<String> response) {
     final items = response.data.split('"');
     final starCount = int.parse(items[items.length - 2]);
