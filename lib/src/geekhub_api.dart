@@ -111,7 +111,7 @@ class GeekHubAPI {
     @required int id,
     String path,
   }) async {
-    final postPath = path ?? '/${camelToSnake(type)}/$id';
+    final postPath = path ?? '/${camelToSnake(type)}s/$id';
     final response = await _dio.get<String>(postPath);
     try {
       return parsePost(response.data);
@@ -196,6 +196,25 @@ class GeekHubAPI {
     return result;
   }
 
+  /// 星标帖子
+  /// POST /[path]/toggle_star
+  Future<int> togglePostStar({
+    @required String type,
+    @required int id,
+    String path,
+  }) async {
+    final postPath = path ?? '/${camelToSnake(type)}s/$id';
+    final response = await _dio.post<String>('$postPath/toggle_star');
+    if (response.statusCode != 200) {
+      throw const GeekHubAPIFaliure.unexpected();
+    }
+    try {
+      return _getStarCountFromResponse(response);
+    } catch (_) {
+      throw const GeekHubAPIFaliure.unableToParse('无法解析星标数量');
+    }
+  }
+
   /// 星标评论
   /// PATCH /comments/[commentId]/toggle_star
   Future<int> toggleCommentStar(int commentId) async {
@@ -205,9 +224,7 @@ class GeekHubAPI {
       throw const GeekHubAPIFaliure.unexpected();
     }
     try {
-      final items = response.data.split('"');
-      final starCount = int.parse(items[items.length - 2]);
-      return starCount;
+      return _getStarCountFromResponse(response);
     } catch (_) {
       throw const GeekHubAPIFaliure.unableToParse('无法解析星标数量');
     }
@@ -313,13 +330,9 @@ class GeekHubAPI {
     }
   }
 
-  Future<String> _dioGetText(
-    String path, {
-    Map<String, dynamic> queryParameters,
-  }) =>
-      _dio
-          .get<String>(path,
-              queryParameters: queryParameters,
-              options: Options(responseType: ResponseType.plain))
-          .then((e) => e.data);
+  int _getStarCountFromResponse(Response<String> response) {
+    final items = response.data.split('"');
+    final starCount = int.parse(items[items.length - 2]);
+    return starCount;
+  }
 }
