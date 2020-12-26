@@ -3,16 +3,16 @@ import 'dart:io';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
-import 'package:geekhub_api/src/entities/comment.dart';
-import 'package:geekhub_api/src/parsers/comment_parser.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 
+import 'entities/comment.dart';
 import 'entities/feed.dart';
 import 'entities/post.dart';
 import 'faliures.dart';
 import 'interceptors/auth_state.dart';
 import 'interceptors/csrf_token_manager.dart';
+import 'parsers/comment_parser.dart';
 import 'parsers/feed_parser.dart';
 import 'parsers/post_parser.dart';
 import 'utils.dart' show UnWrappedErrorDio, camelToSnake;

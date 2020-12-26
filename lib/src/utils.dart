@@ -92,6 +92,27 @@ String snakeToCamel(String text) {
   return sb.toString();
 }
 
+String snakeToTitleCamel(String text) {
+  final StringBuffer sb = StringBuffer();
+  bool foundSymbol = false;
+  for (int i = 0; i < text.length; i++) {
+    final ch = text[i];
+    if (ch == '_') {
+      foundSymbol = true;
+      continue;
+    }
+
+    if (foundSymbol) {
+      sb.write(ch.toUpperCase());
+      foundSymbol = false;
+    } else {
+      sb.write(i == 0 ? ch.toUpperCase() : ch);
+    }
+  }
+
+  return sb.toString();
+}
+
 String camelToSnake(String text) {
   final StringBuffer sb = StringBuffer();
   for (int i = 0; i < text.length; i++) {
