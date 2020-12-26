@@ -3,16 +3,18 @@ import 'dart:io';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
-import 'package:geekhub_api/src/entities/post.dart';
-import 'package:geekhub_api/src/parsers/post_parser.dart';
+import 'package:geekhub_api/src/entities/comment.dart';
+import 'package:geekhub_api/src/parsers/comment_parser.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 
 import 'entities/feed.dart';
+import 'entities/post.dart';
 import 'faliures.dart';
 import 'interceptors/auth_state.dart';
 import 'interceptors/csrf_token_manager.dart';
 import 'parsers/feed_parser.dart';
+import 'parsers/post_parser.dart';
 import 'utils.dart' show UnWrappedErrorDio, camelToSnake;
 
 class GeekHubAPI {
@@ -113,6 +115,26 @@ class GeekHubAPI {
     final response = await _dio.get<String>(postPath);
     try {
       return parsePost(response.data);
+    } catch (_) {
+      throw GeekHubAPIFaliure.unableToParse(response.request.uri.toString());
+    }
+  }
+
+  /// 获取评论
+  ///
+  /// [type] 帖子类型,如 auctions，[id] 帖子 id
+  /// 或者直接使用 [path]，如 /auctions/96
+  ///
+  /// GET /[path]
+  Future<List<Comment>> getComments({
+    @required String type,
+    @required int id,
+    String path,
+  }) async {
+    final postPath = path ?? '/${camelToSnake(type)}/$id';
+    final response = await _dio.get<String>(postPath);
+    try {
+      return parseComments(response.data);
     } catch (_) {
       throw GeekHubAPIFaliure.unableToParse(response.request.uri.toString());
     }
