@@ -3,7 +3,6 @@ import 'package:html/parser.dart' show parse;
 import 'package:html2md/html2md.dart' as html2md;
 
 import '../entities/comment.dart';
-import '../entities/medal.dart';
 import '../entities/user.dart';
 import '../utils.dart' show ElementHelper, parseTime;
 

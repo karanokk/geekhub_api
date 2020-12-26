@@ -2,7 +2,6 @@ import 'package:html/dom.dart';
 import 'package:html/parser.dart' show parse;
 import 'package:html2md/html2md.dart' as html2md;
 
-import '../entities/medal.dart';
 import '../entities/post.dart';
 import '../entities/user.dart';
 import '../utils.dart' show ElementHelper, parseTime, snakeToTitleCamel;

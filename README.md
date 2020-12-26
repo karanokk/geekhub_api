@@ -16,23 +16,26 @@
 ### 帖子
 
 - [x] 获取主页帖子 & 翻页
-- [ ] 获取帖子内容 & 评论 & 评论翻页
+- [x] 获取帖子内容 & 评论 & 评论翻页
 - [x] 发布评论
     `comment`
 - [ ] 发布帖子
 - [x] 星标评论
-- [ ] 星标帖子
+- [x] 星标帖子
 
 ### 账户
 
-- [ ] 获取个人资料
+- [x] 获取个人资料
 - [x] 签到
     `checkIn`
 - [x] 更新账户资料
     `updateAccountSettings`
+- [x] 星标用户
 - [ ] 推送消息
 
+### 错误处理
+`GeekHubAPIFaliure`
 
-### 额外
-
-- [ ] sm.ms 图床上传图片
+`.unableToParse(String message)`: 网页结构改变，无法解析
+`.unAuthenticated()`: 用户未登陆
+`.unexpected()`: 未知错误

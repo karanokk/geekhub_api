@@ -1,14 +1,12 @@
 import 'package:meta/meta.dart';
 
-import 'medal.dart';
-
 class User {
   const User({
     @required this.name,
     @required this.imageUrl,
     @required this.medals,
     this.id,
-    this.memberID,
+    this.memberId,
     this.createdAt,
     this.group,
     this.url,
@@ -32,8 +30,8 @@ class User {
   final List<Medal> medals;
   // nullable
   final int id;
-  final int memberID;
-  final DateTime createdAt; // 加入时间
+  final int memberId;
+  final int createdAt; // 加入时间
   final String group; // 用户组
   final String url;
   final String bio; // 签名
@@ -50,4 +48,14 @@ class User {
   final String telegram;
   final String wechat;
   final String weibo;
+}
+
+class Medal {
+  const Medal({
+    @required this.title,
+    @required this.imageUrl,
+  });
+
+  final String title;
+  final String imageUrl;
 }

@@ -3,7 +3,6 @@ import 'package:html/parser.dart' show parse;
 
 import '../entities/club.dart';
 import '../entities/feed.dart';
-import '../entities/medal.dart';
 import '../entities/user.dart';
 import '../utils.dart' show ElementHelper, parseTime, snakeToCamel;
 

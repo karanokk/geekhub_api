@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
+import 'package:geekhub_api/src/entities/user.dart';
+import 'package:geekhub_api/src/parsers/user_parser.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 
@@ -129,12 +131,29 @@ class GeekHubAPI {
   Future<List<Comment>> getComments({
     @required String type,
     @required int id,
+    @required int page,
     String path,
   }) async {
     final postPath = path ?? '/${camelToSnake(type)}/$id';
-    final response = await _dio.get<String>(postPath);
+    final response =
+        await _dio.get<String>(postPath, queryParameters: {'page': page});
     try {
       return parseComments(response.data);
+    } catch (_) {
+      throw GeekHubAPIFaliure.unableToParse(response.request.uri.toString());
+    }
+  }
+
+  /// 获取帖子
+  ///
+  /// [type] 帖子类型,如 auctions，[id] 帖子 id
+  /// 或者直接使用 [path]，如 /auctions/96
+  ///
+  /// GET /[path]
+  Future<User> getUser({@required String name}) async {
+    final response = await _dio.get<String>('/u/$name');
+    try {
+      return parseUser(response.data);
     } catch (_) {
       throw GeekHubAPIFaliure.unableToParse(response.request.uri.toString());
     }
@@ -216,6 +235,7 @@ class GeekHubAPI {
   }
 
   /// 星标评论
+  ///
   /// PATCH /comments/[commentId]/toggle_star
   Future<int> toggleCommentStar(int commentId) async {
     final response =
@@ -227,6 +247,16 @@ class GeekHubAPI {
       return _getStarCountFromResponse(response);
     } catch (_) {
       throw const GeekHubAPIFaliure.unableToParse('无法解析星标数量');
+    }
+  }
+
+  /// 星标用户
+  ///
+  /// PATCH /u/[userId]/toggle_star
+  Future<void> toggleUserStar(int userId) async {
+    final response = await _dio.patch<String>('/u/$userId/toggle_star');
+    if (response.statusCode != 200) {
+      throw const GeekHubAPIFaliure.unexpected();
     }
   }
 

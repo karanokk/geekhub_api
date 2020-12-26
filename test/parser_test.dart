@@ -4,6 +4,7 @@ import 'package:geekhub_api/src/entities/post.dart';
 import 'package:geekhub_api/src/parsers/comment_parser.dart';
 import 'package:geekhub_api/src/parsers/feed_parser.dart';
 import 'package:geekhub_api/src/parsers/post_parser.dart';
+import 'package:geekhub_api/src/parsers/user_parser.dart';
 
 import 'package:test/test.dart';
 
@@ -87,9 +88,21 @@ void main() {
       });
       test('进行中', () {
         final htmlStr =
-            File('test/testdata/gh-molecules-xxx.html').readAsStringSync();
+            File('test/testdata/gh-molecules-139.html').readAsStringSync();
         final post = parsePost(htmlStr);
-      }, skip: '');
+        final box = post.box as PostBoxMolecule;
+        box.state.maybeWhen(inProgress: (countDown) {
+          expect(countDown, 78918);
+        }, orElse: () {
+          assert(false);
+        });
+      });
+    });
+
+    test('个人资料', () {
+      final htmlStr = File('test/testdata/gh-u-孤独的海怪.html').readAsStringSync();
+      final user = parseUser(htmlStr);
+      expect(user.id, 647);
     });
   });
 
